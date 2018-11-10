@@ -3,7 +3,7 @@ package org.pivotal.models;
 /**
  * Class.
  */
-public class Project implements ResponseData {
+public class ModelProject {
 
     private String id;
 

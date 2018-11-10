@@ -15,53 +15,47 @@ public final class MessageManager {
      * @param entity entity.
      * @return Message.
      */
-    public static Message getSuccessfully(final String entity) {
-        String message = String.format("The get %s  success", entity);
-        return new Message("200", message);
+    public static String getSuccessfully(final String entity) {
+        return String.format("The get %s  success", entity);
     }
 
     /**
      * @param entity entity.
      * @return Message.
      */
-    public static Message getNotContent(final String entity) {
-        String message = String.format("The %s does not exist", entity);
-        return new Message("204", message);
+    public static String getNotContent(final String entity) {
+        return String.format("The %s does not exist", entity);
     }
 
     /**
      * @param entity entity.
      * @return Message.
      */
-    public static Message createdSuccessfully(final String entity) {
-        String message = String.format("The %s was created", entity);
-        return new Message("201", message);
+    public static String createdSuccessfully(final String entity) {
+        return String.format("The %s was created", entity);
     }
 
     /**
      * @param entity entity.
      * @return Message.
      */
-    public static Message updatedSuccessfully(final String entity) {
-        String message = String.format("The %s was updated", entity);
-        return new Message("202", message);
+    public static String updatedSuccessfully(final String entity) {
+        return String.format("The %s was updated", entity);
     }
 
     /**
      * @param entity entity.
      * @return Message.
      */
-    public static Message deletedSuccessfully(final String entity) {
-        String message = String.format("The %s was deleted", entity);
-        return new Message("200", message);
+    public static String deletedSuccessfully(final String entity) {
+        return String.format("The %s was deleted", entity);
     }
 
     /**
      * @param entity entity.
      * @return Message.
      */
-    public static Message entityDoesNotExist(final String entity) {
-        String message = String.format("The %s doesn't exist", entity);
-        return new Message("404", message);
+    public static String entityDoesNotExist(final String entity) {
+        return String.format("The %s doesn't exist", entity);
     }
 }

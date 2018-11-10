@@ -1,24 +1,48 @@
 package org.pivotal.support;
 
+import org.springframework.http.HttpStatus;
+
 /**
  * abstract class.
  */
-public abstract class Response {
+public class Response<T> {
 
-    private Message message;
+    private HttpStatus httpStatus;
+    private ResponseBody<T> body;
 
-    /**
-     * @return message.
-     */
-    public Message getMessage() {
-        return message;
+
+    public Response() {
+        body = new ResponseBody<>();
     }
 
     /**
-     * @param message message.
+     * @return httpStatus.
      */
-    public void setMessage(Message message) {
-        this.message = message;
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
     }
 
+    /**
+     * @param httpStatus httpStatus.
+     */
+    public Response<T> setHttpStatus(HttpStatus httpStatus) {
+        this.httpStatus = httpStatus;
+        return this;
+    }
+
+
+    /**
+     * @return body.
+     */
+    public ResponseBody<T> getBody() {
+        return body;
+    }
+
+    /**
+     * @param body body.
+     */
+    public Response<T> setBody(ResponseBody<T> body) {
+        this.body = body;
+        return this;
+    }
 }
