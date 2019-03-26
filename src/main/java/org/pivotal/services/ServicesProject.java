@@ -15,29 +15,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServicesProject {
 
-    private static final String ENTITY = "project";
 
-    private List<ModelProject> modelProjectList;
-    private Response<ModelProject> response;
+    private StrategyManager strategyManager;
 
     /**
      * Constructor.
      */
     ServicesProject() {
-        modelProjectList = new ArrayList<>();
-        response = new Response<>();
+        strategyManager = new StrategyManager();
     }
 
     /**
      * @return modelProjectList.
      */
     public Response getAllProject() {
-        response
-                .setHttpStatus(HttpStatus.OK)
-                .getBody()
-                .setTextMessage(MessageManager.getSuccessfully(ENTITY))
-                .setData(modelProjectList);
-        return response;
+        return strategyManager.getResponse(new ProjectGetAll());
     }
 
     /**
@@ -45,24 +37,8 @@ public class ServicesProject {
      * @return ModelProject.
      */
     public Response getProjectById(final String id) {
-        response
-                .setHttpStatus(HttpStatus.NO_CONTENT)
-                .getBody()
-                .setTextMessage(MessageManager.getNotContent(ENTITY))
-                .setData(null);
-
-        for (ModelProject modelProject : modelProjectList) {
-            if (modelProject.getId().equals(id)) {
-                List<ModelProject> newModelProjectList = new ArrayList<>();
-                newModelProjectList.add(modelProject);
-                response
-                        .setHttpStatus(HttpStatus.OK)
-                        .getBody()
-                        .setTextMessage(MessageManager.getSuccessfully(ENTITY))
-                        .setData(newModelProjectList);
-            }
-        }
-        return response;
+        HelperProject.setId(id);
+        return strategyManager.getResponse(new ProjectGetById());
     }
 
     /**
@@ -70,38 +46,19 @@ public class ServicesProject {
      * @return Message.
      */
     public Response addProject(final ModelProject modelProject) {
-        response
-                .setHttpStatus(HttpStatus.CREATED)
-                .getBody()
-                .setTextMessage(MessageManager.createdSuccessfully(ENTITY))
-                .setData(null);
-        modelProjectList.add(modelProject);
-        return response;
+        HelperProject.setModelProject(modelProject);
+        return strategyManager.getResponse(new ProjectPost());
     }
 
     /**
      * @param modelProject ModelProject.
-     * @param id      ModelProject id.
+     * @param id           ModelProject id.
      * @return Message.
      */
     public Response updateProject(final ModelProject modelProject, final String id) {
-        response
-                .setHttpStatus(HttpStatus.NO_CONTENT)
-                .getBody()
-                .setTextMessage(MessageManager.getNotContent(ENTITY))
-                .setData(null);
-        for (ModelProject currentModelProject : modelProjectList) {
-            if (currentModelProject.getId().equals(id)) {
-                List<ModelProject> newModelProjectList = new ArrayList<>();
-                newModelProjectList.add(currentModelProject);
-                response
-                        .setHttpStatus(HttpStatus.OK)
-                        .getBody()
-                        .setTextMessage(MessageManager.updatedSuccessfully(ENTITY))
-                        .setData(newModelProjectList);
-            }
-        }
-        return response;
+        HelperProject.setId(id);
+        HelperProject.setModelProject(modelProject);
+        return strategyManager.getResponse(new ProjectPut());
     }
 
     /**
@@ -109,20 +66,7 @@ public class ServicesProject {
      * @return Message.
      */
     public Response deleteProject(final String id) {
-        response
-                .setHttpStatus(HttpStatus.NO_CONTENT)
-                .getBody()
-                .setTextMessage(MessageManager.getNotContent(ENTITY))
-                .setData(null);
-        for (int i = 0; i < modelProjectList.size(); i++) {
-            if (modelProjectList.get(i).getId().equals(id)) {
-                response
-                        .setHttpStatus(HttpStatus.OK)
-                        .getBody()
-                        .setTextMessage(MessageManager.deletedSuccessfully(ENTITY));
-                modelProjectList.remove(i);
-            }
-        }
-        return response;
+        HelperProject.setId(id);
+        return strategyManager.getResponse(new ProjectDelete());
     }
 }

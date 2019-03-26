@@ -4,13 +4,16 @@ import org.springframework.http.HttpStatus;
 
 /**
  * abstract class.
+ * Generic Builder.
  */
 public class Response<T> {
 
     private HttpStatus httpStatus;
     private ResponseBody<T> body;
 
-
+    /**
+     * Constructor.
+     */
     public Response() {
         body = new ResponseBody<>();
     }
