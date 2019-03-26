@@ -3,9 +3,13 @@
 ## PROJECTS
 ### GET PROJECTS
 GET: 			{Host}:{Port}/api/v1/projects
+
 GET: 			{Host}:{Port}/api/v1/projects/{project_id}
+
 GET EXAMPLE:	10.31.35.100:8080/api/v1/projects
+
 GET EXAMPLE:	10.31.35.100:8080/api/v1/projects/{project_id}
+
 
 ### POST PROJECTS
 
