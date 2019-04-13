@@ -1,11 +1,11 @@
-package org.pivotal.support;
+package org.spring.support;
 
 import org.springframework.http.HttpStatus;
 
 /**
- * abstract class.
- * Generic Builder.
+ * @param <T> Response.
  */
+
 public class Response<T> {
 
     private HttpStatus httpStatus;
@@ -27,15 +27,16 @@ public class Response<T> {
 
     /**
      * @param httpStatus httpStatus.
+     * @return Response.
      */
-    public Response<T> setHttpStatus(HttpStatus httpStatus) {
+    public Response<T> setHttpStatus(final HttpStatus httpStatus) {
         this.httpStatus = httpStatus;
         return this;
     }
 
 
     /**
-     * @return body.
+     * @return Response.
      */
     public ResponseBody<T> getBody() {
         return body;
@@ -43,8 +44,9 @@ public class Response<T> {
 
     /**
      * @param body body.
+     * @return Response.
      */
-    public Response<T> setBody(ResponseBody<T> body) {
+    public Response<T> setBody(final ResponseBody<T> body) {
         this.body = body;
         return this;
     }

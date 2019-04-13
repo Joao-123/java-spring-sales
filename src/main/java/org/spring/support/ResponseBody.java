@@ -1,7 +1,11 @@
-package org.pivotal.support;
+package org.spring.support;
 
 import java.util.List;
 
+/**
+ *
+ * @param <T> ResponseBody.
+ */
 public class ResponseBody<T> {
 
     private String message;
@@ -15,6 +19,7 @@ public class ResponseBody<T> {
 
     /**
      * @param textMessage textMessage.
+     * @return ResponseBody.
      */
     public ResponseBody<T> setTextMessage(final String textMessage) {
         this.message = textMessage;
@@ -37,6 +42,7 @@ public class ResponseBody<T> {
 
     /**
      * @param data data.
+     * @return ResponseBody.
      */
     public ResponseBody<T> setData(final List<T> data) {
         this.data = data;

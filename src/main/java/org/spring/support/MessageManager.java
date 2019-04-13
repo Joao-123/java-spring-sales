@@ -1,4 +1,4 @@
-package org.pivotal.support;
+package org.spring.support;
 
 /**
  * Class.
@@ -16,7 +16,7 @@ public final class MessageManager {
      * @return Message.
      */
     public static String getSuccessfully(final String entity) {
-        return String.format("The get %s  success", entity);
+        return String.format("The get %s  successfully", entity);
     }
 
     /**
@@ -32,7 +32,7 @@ public final class MessageManager {
      * @return Message.
      */
     public static String createdSuccessfully(final String entity) {
-        return String.format("The %s was created", entity);
+        return String.format("The %s was created successfully", entity);
     }
 
     /**
@@ -40,7 +40,7 @@ public final class MessageManager {
      * @return Message.
      */
     public static String updatedSuccessfully(final String entity) {
-        return String.format("The %s was updated", entity);
+        return String.format("The %s was updated successfully", entity);
     }
 
     /**
@@ -48,7 +48,7 @@ public final class MessageManager {
      * @return Message.
      */
     public static String deletedSuccessfully(final String entity) {
-        return String.format("The %s was deleted", entity);
+        return String.format("The %s was deleted successfully", entity);
     }
 
     /**

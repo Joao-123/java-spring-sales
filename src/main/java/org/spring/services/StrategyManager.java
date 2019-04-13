@@ -1,6 +1,6 @@
-package org.pivotal.services;
+package org.spring.services;
 
-import org.pivotal.support.Response;
+import org.spring.support.Response;
 
 /**
  * Strategy Manager.

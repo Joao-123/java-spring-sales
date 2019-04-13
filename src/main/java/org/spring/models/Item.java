@@ -1,13 +1,15 @@
-package org.pivotal.models;
+package org.spring.models;
 
 /**
  * Class.
  */
-public class ModelProject {
+public class Item {
 
     private String id;
 
     private String name;
+
+    private String price;
 
     /**
      * @return id.
@@ -37,4 +39,17 @@ public class ModelProject {
         this.name = name;
     }
 
+    /**
+     * @return price.
+     */
+    public String getPrice() {
+        return price;
+    }
+
+    /**
+     * @param price price.
+     */
+    public void setPrice(final String price) {
+        this.price = price;
+    }
 }
