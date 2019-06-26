@@ -1,4 +1,4 @@
-# java-spring-school
+# java-spring-sales
 
 ## USERS
 ### GET USERS
