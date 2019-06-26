@@ -4,6 +4,7 @@ import org.spring.models.Item;
 import org.spring.services.ServicesItem;
 import org.spring.support.Paths;
 import org.spring.support.Response;
+import org.spring.support.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,9 +26,9 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_ITEMS)
-    public ResponseEntity<Response> getAll() {
+    public ResponseEntity<ResponseBody> getAll() {
         Response response = serviceItem.getAll();
-        return ResponseEntity.status(response.getHttpStatus()).body(response);
+        return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
 
     /**
@@ -35,9 +36,9 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_ITEMS_WITH_ID)
-    public ResponseEntity<Response> getById(final @PathVariable String id) {
+    public ResponseEntity<ResponseBody> getById(final @PathVariable String id) {
         Response response = serviceItem.getById(id);
-        return ResponseEntity.status(response.getHttpStatus()).body(response);
+        return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
 
     /**
@@ -45,9 +46,9 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.POST, value = Paths.PATH_ITEMS)
-    public ResponseEntity<Response> add(final @RequestBody Item item) {
+    public ResponseEntity<ResponseBody> add(final @RequestBody Item item) {
         Response response = serviceItem.add(item);
-        return ResponseEntity.status(response.getHttpStatus()).body(response);
+        return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
 
     /**
@@ -56,9 +57,9 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.PUT, value = Paths.PATH_ITEMS_WITH_ID)
-    public ResponseEntity<Response> update(final @RequestBody Item item, final @PathVariable String id) {
+    public ResponseEntity<ResponseBody> update(final @RequestBody Item item, final @PathVariable String id) {
         Response response = serviceItem.update(item, id);
-        return ResponseEntity.status(response.getHttpStatus()).body(response);
+        return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
 
     /**
@@ -66,9 +67,9 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.DELETE, value = Paths.PATH_ITEMS_WITH_ID)
-    public ResponseEntity<Response> delete(final @PathVariable String id) {
+    public ResponseEntity<ResponseBody> delete(final @PathVariable String id) {
         Response response = serviceItem.delete(id);
-        return ResponseEntity.status(response.getHttpStatus()).body(response);
+        return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
 
     }
 
