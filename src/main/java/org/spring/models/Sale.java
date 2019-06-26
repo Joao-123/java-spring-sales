@@ -12,7 +12,6 @@ public class Sale {
     private List<String> listProductsIds;
     private String date;
 
-
     /**
      * Constructor.
      */
