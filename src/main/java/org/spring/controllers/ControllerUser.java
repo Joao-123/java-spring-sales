@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControllerUser {
 
     @Autowired
-    public ServicesUser servicesUser;
+    private ServicesUser servicesUser;
 
     /**
      * @return ResponseSingle.

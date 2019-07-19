@@ -13,6 +13,12 @@ public class User {
     private String type;
 
     /**
+     * Constructor.
+     */
+    public User() {
+    }
+
+    /**
      * @return id.
      */
     public String getId() {

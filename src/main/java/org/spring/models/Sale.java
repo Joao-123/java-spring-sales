@@ -1,6 +1,5 @@
 package org.spring.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,16 +8,14 @@ import java.util.List;
 public class Sale {
     private String id;
     private String userId;
-    private List<String> listProductsIds;
+    private List<String> listItemsIds;
     private String date;
 
     /**
      * Constructor.
      */
     public Sale() {
-        listProductsIds = new ArrayList<>();
     }
-
 
     /**
      * @return id.
@@ -30,7 +27,7 @@ public class Sale {
     /**
      * @param id id.
      */
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -44,7 +41,7 @@ public class Sale {
     /**
      * @param userId user id.
      */
-    public void setUserId(String userId) {
+    public void setUserId(final String userId) {
         this.userId = userId;
     }
 
@@ -58,21 +55,21 @@ public class Sale {
     /**
      * @param date sale date.
      */
-    public void setDate(String date) {
+    public void setDate(final String date) {
         this.date = date;
     }
 
     /**
      * @return list.
      */
-    public List<String> getListProductsIds() {
-        return listProductsIds;
+    public List<String> getListItemsIds() {
+        return listItemsIds;
     }
 
     /**
-     * @param listProductsIds list.
+     * @param listItemsIds list.
      */
-    public void setListProductsIds(List<String> listProductsIds) {
-        this.listProductsIds = listProductsIds;
+    public void setListItemsIds(final List<String> listItemsIds) {
+        this.listItemsIds = listItemsIds;
     }
 }

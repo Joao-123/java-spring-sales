@@ -36,14 +36,14 @@ public class SaleTet {
         listProductIds.add("1002");
         listProductIds.add("1004");
         listProductIds.add("1005");
-        sale.setListProductsIds(listProductIds);
+        sale.setListItemsIds(listProductIds);
 
         // Assert Sale ID
         Assert.assertEquals("1000001", sale.getId());
         // Assert User ID
         Assert.assertEquals("5897425", sale.getUserId());
         // Assert List Products IDs
-        Assert.assertArrayEquals(listProductIds.toArray(), sale.getListProductsIds().toArray());
+        Assert.assertArrayEquals(listProductIds.toArray(), sale.getListItemsIds().toArray());
         // Assert Date.
         sale.setDate("26/06/2019");
 

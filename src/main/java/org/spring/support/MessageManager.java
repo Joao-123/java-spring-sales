@@ -16,7 +16,7 @@ public final class MessageManager {
      * @return Message.
      */
     public static String getSuccessfully(final String entity) {
-        return String.format("The get %s  successfully", entity);
+        return String.format("The get %s successfully", entity);
     }
 
     /**

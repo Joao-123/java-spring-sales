@@ -12,6 +12,12 @@ public class Item {
     private String price;
 
     /**
+     * Constructor.
+     */
+    public Item() {
+    }
+
+    /**
      * @return id.
      */
     public String getId() {
