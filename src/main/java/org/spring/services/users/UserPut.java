@@ -4,6 +4,7 @@ import org.spring.models.User;
 import org.spring.services.StrategyResponse;
 import org.spring.support.MessageManager;
 import org.spring.support.Response;
+import org.spring.support.ResponseManager;
 import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ public class UserPut implements StrategyResponse {
      */
     @Override
     public Response getResponse() {
-        HelperUserList
-                .getResponse()
+        Response<User> response = ResponseManager.getResponseUser();
+        response
                 .setHttpStatus(HttpStatus.NO_CONTENT)
                 .getBody()
                 .setTextMessage(MessageManager.getNotContent(HelperUser.getEntity()))
@@ -32,14 +33,13 @@ public class UserPut implements StrategyResponse {
                 // newModelProjectList It's just to show the edited one.
                 List<User> newModelProjectList = new ArrayList<>();
                 newModelProjectList.add(currentUser);
-                HelperUserList
-                        .getResponse()
+                response
                         .setHttpStatus(HttpStatus.OK)
                         .getBody()
                         .setTextMessage(MessageManager.updatedSuccessfully(HelperUser.getEntity()))
                         .setData(newModelProjectList);
             }
         }
-        return HelperUserList.getResponse();
+        return response;
     }
 }

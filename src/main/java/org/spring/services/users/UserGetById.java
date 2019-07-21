@@ -4,6 +4,7 @@ import org.spring.models.User;
 import org.spring.services.StrategyResponse;
 import org.spring.support.MessageManager;
 import org.spring.support.Response;
+import org.spring.support.ResponseManager;
 import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ public class UserGetById implements StrategyResponse {
      */
     @Override
     public Response getResponse() {
-        HelperUserList
-                .getResponse()
+        Response<User> response = ResponseManager.getResponseUser();
+        response
                 .setHttpStatus(HttpStatus.NO_CONTENT)
                 .getBody()
                 .setTextMessage(MessageManager.getNotContent(HelperUser.getEntity()))
@@ -29,14 +30,13 @@ public class UserGetById implements StrategyResponse {
             if (user.getId().equals(HelperUser.getId())) {
                 List<User> newList = new ArrayList<>();
                 newList.add(user);
-                HelperUserList
-                        .getResponse()
+                response
                         .setHttpStatus(HttpStatus.OK)
                         .getBody()
                         .setTextMessage(MessageManager.getSuccessfully(HelperUser.getEntity()))
                         .setData(newList);
             }
         }
-        return HelperUserList.getResponse();
+        return response;
     }
 }

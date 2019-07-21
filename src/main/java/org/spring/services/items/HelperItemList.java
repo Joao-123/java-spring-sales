@@ -1,7 +1,6 @@
 package org.spring.services.items;
 
 import org.spring.models.Item;
-import org.spring.support.Response;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +13,11 @@ public final class HelperItemList {
     private static final String ENTITY = "project";
     private static HelperItemList helperItemList;
     private List<Item> itemList;
-    private Response<Item> response;
 
     /**
      * Constructor.
      */
     private HelperItemList() {
-        response = new Response<>();
         itemList = new ArrayList<>();
     }
 
@@ -39,13 +36,6 @@ public final class HelperItemList {
      */
     public static List<Item> getModelProjectList() {
         return getSingleton().itemList;
-    }
-
-    /**
-     * @return response.
-     */
-    public static Response<Item> getResponse() {
-        return getSingleton().response;
     }
 
     /**

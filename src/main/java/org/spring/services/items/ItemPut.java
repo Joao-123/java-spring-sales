@@ -4,6 +4,7 @@ import org.spring.models.Item;
 import org.spring.services.StrategyResponse;
 import org.spring.support.MessageManager;
 import org.spring.support.Response;
+import org.spring.support.ResponseManager;
 import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public class ItemPut implements StrategyResponse {
      */
     @Override
     public Response getResponse() {
-        HelperItemList
-                .getResponse()
+        Response<Item> response = ResponseManager.getResponseItem();
+        response
                 .setHttpStatus(HttpStatus.NO_CONTENT)
                 .getBody()
                 .setTextMessage(MessageManager.getNotContent(HelperItemList.getEntity()))
@@ -33,14 +34,13 @@ public class ItemPut implements StrategyResponse {
                 // newItemList It's just to show the edited one.
                 List<Item> newItemList = new ArrayList<>();
                 newItemList.add(currentItem);
-                HelperItemList
-                        .getResponse()
+                response
                         .setHttpStatus(HttpStatus.OK)
                         .getBody()
                         .setTextMessage(MessageManager.updatedSuccessfully(HelperItemList.getEntity()))
                         .setData(newItemList);
             }
         }
-        return HelperItemList.getResponse();
+        return response;
     }
 }

@@ -1,8 +1,10 @@
 package org.spring.services.users;
 
+import org.spring.models.User;
 import org.spring.services.StrategyResponse;
 import org.spring.support.MessageManager;
 import org.spring.support.Response;
+import org.spring.support.ResponseManager;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -15,22 +17,21 @@ public class UserDelete implements StrategyResponse {
      */
     @Override
     public Response getResponse() {
-        HelperUserList
-                .getResponse()
+        Response<User> response = ResponseManager.getResponseUser();
+        response
                 .setHttpStatus(HttpStatus.NO_CONTENT)
                 .getBody()
                 .setTextMessage(MessageManager.getNotContent(HelperUser.getEntity()))
                 .setData(null);
         for (int i = 0; i < HelperUserList.getList().size(); i++) {
             if (HelperUserList.getList().get(i).getId().equals(HelperUser.getId())) {
-                HelperUserList
-                        .getResponse()
+                response
                         .setHttpStatus(HttpStatus.OK)
                         .getBody()
                         .setTextMessage(MessageManager.deletedSuccessfully(HelperUser.getEntity()));
                 HelperUserList.getList().remove(i);
             }
         }
-        return HelperUserList.getResponse();
+        return response;
     }
 }

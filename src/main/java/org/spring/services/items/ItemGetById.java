@@ -4,6 +4,7 @@ import org.spring.models.Item;
 import org.spring.services.StrategyResponse;
 import org.spring.support.MessageManager;
 import org.spring.support.Response;
+import org.spring.support.ResponseManager;
 import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ public class ItemGetById implements StrategyResponse {
      */
     @Override
     public Response getResponse() {
-        HelperItemList
-                .getResponse()
+        Response<Item> response = ResponseManager.getResponseItem();
+        response
                 .setHttpStatus(HttpStatus.NO_CONTENT)
                 .getBody()
                 .setTextMessage(MessageManager.getNotContent(HelperItemList.getEntity()))
@@ -29,14 +30,13 @@ public class ItemGetById implements StrategyResponse {
             if (item.getId().equals(HelperItem.getId())) {
                 List<Item> newItemList = new ArrayList<>();
                 newItemList.add(item);
-                HelperItemList
-                        .getResponse()
+                response
                         .setHttpStatus(HttpStatus.OK)
                         .getBody()
                         .setTextMessage(MessageManager.getSuccessfully(HelperItemList.getEntity()))
                         .setData(newItemList);
             }
         }
-        return HelperItemList.getResponse();
+        return response;
     }
 }
