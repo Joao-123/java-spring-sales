@@ -1,15 +1,33 @@
 package org.spring.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Class.
  */
+
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @Column(name = "id")
     private String id;
+    @Column(name = "password")
     private String password;
+    @Column(name = "name")
     private String name;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "birth_date")
     private String birthDate;
+    @Column(name = "email")
     private String email;
+    @Column(name = "type")
     private String type;
 
     /**

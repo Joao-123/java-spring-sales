@@ -1,19 +1,23 @@
 package org.spring.services.users;
 
 import org.spring.models.User;
+import org.spring.repository.RepositoryUser;
 import org.spring.services.StrategyResponse;
 import org.spring.support.MessageManager;
 import org.spring.support.Response;
 import org.spring.support.ResponseManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  * Class.
  */
-public class UserGetById implements StrategyResponse {
+@Service
+public class StrategyServiceUserDelete implements StrategyResponse {
+
+    @Autowired
+    private RepositoryUser repositoryUser;
 
     /**
      * {@inheritDoc}
@@ -26,16 +30,13 @@ public class UserGetById implements StrategyResponse {
                 .getBody()
                 .setTextMessage(MessageManager.getNotContent(HelperUser.getEntity()))
                 .setData(null);
-        for (User user : HelperUserList.getList()) {
-            if (user.getId().equals(HelperUser.getId())) {
-                List<User> newList = new ArrayList<>();
-                newList.add(user);
-                response
-                        .setHttpStatus(HttpStatus.OK)
-                        .getBody()
-                        .setTextMessage(MessageManager.getSuccessfully(HelperUser.getEntity()))
-                        .setData(newList);
-            }
+        if (repositoryUser.findById(HelperUser.getId()).orElse(null) != null) {
+            response
+                    .setHttpStatus(HttpStatus.OK)
+                    .getBody()
+                    .setTextMessage(MessageManager.deletedSuccessfully(HelperUser.getEntity()))
+                    .setData(null);
+            repositoryUser.deleteById(HelperUser.getId());
         }
         return response;
     }

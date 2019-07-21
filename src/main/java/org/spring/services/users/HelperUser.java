@@ -2,20 +2,25 @@ package org.spring.services.users;
 
 import org.spring.models.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class Helper.
  */
 public final class HelperUser {
 
     private static final String ENTITY = "user";
+    private static HelperUser helperUser;
     private String id;
     private User user;
-    private static HelperUser helperUser;
+    private List<User> userList;
 
     /**
      * Constructor.
      */
     private HelperUser() {
+        userList = new ArrayList<>();
     }
 
     /**
@@ -61,5 +66,20 @@ public final class HelperUser {
      */
     public static String getEntity() {
         return ENTITY;
+    }
+
+    /**
+     * @return userList.
+     */
+    public static List<User> getList() {
+        return getSingleton().userList;
+    }
+
+    /**
+     * @return userList.
+     */
+    public static List<User> getEmptyList() {
+        getSingleton().userList.clear();
+        return getSingleton().userList;
     }
 }
