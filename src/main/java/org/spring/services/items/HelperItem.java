@@ -2,14 +2,18 @@ package org.spring.services.items;
 
 import org.spring.models.Item;
 
+import java.util.List;
+
 /**
  * Helper Project Class.
  */
 public final class HelperItem {
 
+    private static final String ENTITY = "item";
     private String id;
     private Item item;
     private static HelperItem helperItem;
+    private List<Item> itemList;
 
     /**
      * @return Singleton.
@@ -38,14 +42,37 @@ public final class HelperItem {
     /**
      * @return Item.
      */
-    public static Item getModelProject() {
+    public static Item getItem() {
         return getSingleton().item;
     }
 
     /**
      * @param item item.
      */
-    public static void setModelProject(final Item item) {
+    public static void setItem(final Item item) {
         getSingleton().item = item;
     }
+
+    /**
+     * @return ENTITY.
+     */
+    public static String getEntity() {
+        return ENTITY;
+    }
+
+    /**
+     * @return userList.
+     */
+    public static List<Item> getList() {
+        return getSingleton().itemList;
+    }
+
+    /**
+     * @return userList.
+     */
+    public static List<Item> getEmptyList() {
+        getSingleton().itemList.clear();
+        return getSingleton().itemList;
+    }
 }
+

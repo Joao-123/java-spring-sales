@@ -7,7 +7,8 @@ import java.util.List;
  */
 public class Sale {
     private String id;
-    private String userId;
+    private String sellerId;
+    private String clientId;
     private List<String> listItemsIds;
     private String date;
 
@@ -34,15 +35,15 @@ public class Sale {
     /**
      * @return user id.
      */
-    public String getUserId() {
-        return userId;
+    public String getSellerId() {
+        return sellerId;
     }
 
     /**
-     * @param userId user id.
+     * @param sellerId user id.
      */
-    public void setUserId(final String userId) {
-        this.userId = userId;
+    public void setSellerId(final String sellerId) {
+        this.sellerId = sellerId;
     }
 
     /**
@@ -71,5 +72,19 @@ public class Sale {
      */
     public void setListItemsIds(final List<String> listItemsIds) {
         this.listItemsIds = listItemsIds;
+    }
+
+    /**
+     * @return getClientId.
+     */
+    public String getClientId() {
+        return clientId;
+    }
+
+    /**
+     * @param clientId clientId.
+     */
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 }

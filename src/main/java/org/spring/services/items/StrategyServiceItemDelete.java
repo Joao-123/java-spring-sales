@@ -1,7 +1,7 @@
-package org.spring.services.users;
+package org.spring.services.items;
 
-import org.spring.models.User;
-import org.spring.repository.RepositoryUser;
+import org.spring.models.Item;
+import org.spring.repository.RepositoryItem;
 import org.spring.services.StrategyResponse;
 import org.spring.support.MessageManager;
 import org.spring.support.Response;
@@ -10,35 +10,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-
 /**
- * Class.
+ * Project Delete.
  */
 @Service
-public class StrategyServiceUserGetById implements StrategyResponse {
+public class StrategyServiceItemDelete implements StrategyResponse {
 
     @Autowired
-    private RepositoryUser repositoryUser;
+    private RepositoryItem repositoryItem;
 
     /**
      * {@inheritDoc}
      */
     @Override
     public Response getResponse() {
-        Response<User> response = ResponseManager.getResponseUser();
+        Response<Item> response = ResponseManager.getResponseItem();
         response
                 .setHttpStatus(HttpStatus.NOT_FOUND)
                 .getBody()
-                .setTextMessage(MessageManager.getNotContent(HelperUser.getEntity()))
+                .setTextMessage(MessageManager.getNotContent(HelperItem.getEntity()))
                 .setData(null);
-        User user = repositoryUser.findById(HelperUser.getId()).orElse(null);
-        if (user != null) {
-            HelperUser.getEmptyList().add(user);
+        if (repositoryItem.findById(HelperItem.getId()).orElse(null) != null) {
             response
                     .setHttpStatus(HttpStatus.OK)
                     .getBody()
-                    .setTextMessage(MessageManager.getSuccessfully(HelperUser.getEntity()))
-                    .setData(HelperUser.getList());
+                    .setTextMessage(MessageManager.deletedSuccessfully(HelperItem.getEntity()))
+                    .setData(null);
+            repositoryItem.deleteById(HelperItem.getId());
         }
         return response;
     }

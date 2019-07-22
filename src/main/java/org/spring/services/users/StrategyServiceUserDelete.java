@@ -26,7 +26,7 @@ public class StrategyServiceUserDelete implements StrategyResponse {
     public Response getResponse() {
         Response<User> response = ResponseManager.getResponseUser();
         response
-                .setHttpStatus(HttpStatus.NO_CONTENT)
+                .setHttpStatus(HttpStatus.NOT_FOUND)
                 .getBody()
                 .setTextMessage(MessageManager.getNotContent(HelperUser.getEntity()))
                 .setData(null);
