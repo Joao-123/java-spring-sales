@@ -4,17 +4,17 @@
 ### GET USERS
 
 ```
-GET: 			{Host}:{Port}/api/v1/users
-GET: 			{Host}:{Port}/api/v1/users/{user_id}
-GET EXAMPLE:	localhost:8080/api/v1/users
-GET EXAMPLE:	localhost:8080/api/v1/users/5814525
+GET:            {Host}:{Port}/api/v1/users
+GET:            {Host}:{Port}/api/v1/users/{user_id}
+GET EXAMPLE:    localhost:8080/api/v1/users
+GET EXAMPLE:    localhost:8080/api/v1/users/5814525
 ```
 
 ### POST USERS
 
 ```
-POST:			{Host}:{Port}/api/v1/users
-POST EXAMPLE:	localhost:8080/api/v1/users
+POST:            {Host}:{Port}/api/v1/users
+POST EXAMPLE:    localhost:8080/api/v1/users
 BODY:
 {
     "id": "5814525",
@@ -30,8 +30,8 @@ BODY:
 ### PUT USERS
 
 ```
-PUT:			{Host}:{Port}/api/v1/users/{user_id}
-PUT EXAMPLE:	localhost:8080/api/v1/users/5814527
+PUT:            {Host}:{Port}/api/v1/users/{user_id}
+PUT EXAMPLE:    localhost:8080/api/v1/users/5814527
 BODY:
 {
     "id": "5814525",
@@ -47,25 +47,25 @@ BODY:
 ### DELETE USERS
 
 ```
-DELETE: 			{Host}:{Port}/api/v1/users/{user_id}
-DELETE EXAMPLE:		localhost:8080/api/v1/users/5814527
+DELETE:            {Host}:{Port}/api/v1/users/{user_id}
+DELETE EXAMPLE:    localhost:8080/api/v1/users/5814527
 ```
 
 ## ITEMS
 ### GET ITEMS
 
 ```
-GET: 			{Host}:{Port}/api/v1/items
-GET: 			{Host}:{Port}/api/v1/items/{item_id}
-GET EXAMPLE:	localhost:8080/api/v1/items
-GET EXAMPLE:	localhost:8080/api/v1/items/1001
+GET:            {Host}:{Port}/api/v1/items
+GET:            {Host}:{Port}/api/v1/items/{item_id}
+GET EXAMPLE:    localhost:8080/api/v1/items
+GET EXAMPLE:    localhost:8080/api/v1/items/1001
 ```
 
 ### POST ITEMS
 
 ```
-POST:			{Host}:{Port}/api/v1/items
-POST EXAMPLE:	localhost:8080/api/v1/items
+POST:            {Host}:{Port}/api/v1/items
+POST EXAMPLE:    localhost:8080/api/v1/items
 BODY:
 {
     "name": "Drink RedBeer",
@@ -73,12 +73,12 @@ BODY:
     "stock": 25,
 }
 ```
-
+    
 ### PUT ITEMS
 
 ```
-PUT:			{Host}:{Port}/api/v1/items/{item_id}
-PUT EXAMPLE:	localhost:8080/api/v1/items/1001
+PUT:            {Host}:{Port}/api/v1/items/{item_id}
+PUT EXAMPLE:    localhost:8080/api/v1/items/1001
 BODY:
 {
     "name": "Drink GreenBeer",
@@ -90,6 +90,6 @@ BODY:
 ### DELETE USERS
 
 ```
-DELETE: 			{Host}:{Port}/api/v1/items/{item_id}
-DELETE EXAMPLE:		localhost:8080/api/v1/items/1001
+DELETE:            {Host}:{Port}/api/v1/items/{item_id}
+DELETE EXAMPLE:    localhost:8080/api/v1/items/1001
 ```
