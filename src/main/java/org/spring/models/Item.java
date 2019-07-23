@@ -2,6 +2,8 @@ package org.spring.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,14 +15,15 @@ import javax.persistence.Table;
 public class Item {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
-    private String id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "price")
-    private String price;
+    private Float price;
 
     @Column(name = "stock")
     private Integer stock;
@@ -34,14 +37,14 @@ public class Item {
     /**
      * @return id.
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id id.
      */
-    public void setId(final String id) {
+    public void setId(final Integer id) {
         this.id = id;
     }
 
@@ -62,14 +65,14 @@ public class Item {
     /**
      * @return price.
      */
-    public String getPrice() {
+    public Float getPrice() {
         return price;
     }
 
     /**
      * @param price price.
      */
-    public void setPrice(final String price) {
+    public void setPrice(final Float price) {
         this.price = price;
     }
 

@@ -31,6 +31,7 @@ public class StrategyServiceItemPut implements StrategyResponse {
                 .setTextMessage(MessageManager.getNotContent(HelperItem.getEntity()))
                 .setData(null);
         if (repositoryItem.findById(HelperItem.getId()).orElse(null) != null) {
+            HelperItem.getItem().setId(HelperItem.getId());
             repositoryItem.save(HelperItem.getItem());
             HelperItem.getEmptyList().add(HelperItem.getItem());
             response

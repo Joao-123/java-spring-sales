@@ -2,6 +2,7 @@ package org.spring.services.items;
 
 import org.spring.models.Item;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,10 +11,17 @@ import java.util.List;
 public final class HelperItem {
 
     private static final String ENTITY = "item";
-    private String id;
+    private Integer id;
     private Item item;
     private static HelperItem helperItem;
     private List<Item> itemList;
+
+    /**
+     * Constructor.
+     */
+    private HelperItem() {
+        itemList = new ArrayList<>();
+    }
 
     /**
      * @return Singleton.
@@ -28,14 +36,14 @@ public final class HelperItem {
     /**
      * @return id.
      */
-    public static String getId() {
+    public static Integer getId() {
         return getSingleton().id;
     }
 
     /**
      * @param id id.
      */
-    public static void setId(final String id) {
+    public static void setId(final Integer id) {
         getSingleton().id = id;
     }
 

@@ -2,13 +2,9 @@ package org.spring.services;
 
 
 import org.spring.models.Item;
-import org.spring.services.items.HelperItem;
-import org.spring.services.items.ItemDelete;
-import org.spring.services.items.ItemGet;
-import org.spring.services.items.ItemGetById;
-import org.spring.services.items.ItemPost;
-import org.spring.services.items.ItemPut;
+import org.spring.services.items.*;
 import org.spring.support.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,6 +15,22 @@ public class ServicesItem {
 
 
     private StrategyManager strategyManager;
+
+    // Import Strategies
+    @Autowired
+    private StrategyServiceItemGet strategyGet;
+
+    @Autowired
+    private StrategyServiceItemGetById strategyGetById;
+
+    @Autowired
+    private StrategyServiceItemPost strategyPost;
+
+    @Autowired
+    private StrategyServiceItemPut strategyPut;
+
+    @Autowired
+    private StrategyServiceItemDelete strategyDelete;
 
     /**
      * Constructor.
@@ -31,16 +43,16 @@ public class ServicesItem {
      * @return Items.
      */
     public Response getAll() {
-        return strategyManager.getResponse(new ItemGet());
+        return strategyManager.getResponse(strategyGet);
     }
 
     /**
      * @param id Item id.
      * @return Item.
      */
-    public Response getById(final String id) {
+    public Response getById(final Integer id) {
         HelperItem.setId(id);
-        return strategyManager.getResponse(new ItemGetById());
+        return strategyManager.getResponse(strategyGetById);
     }
 
     /**
@@ -48,8 +60,8 @@ public class ServicesItem {
      * @return Message.
      */
     public Response add(final Item item) {
-        HelperItem.setModelProject(item);
-        return strategyManager.getResponse(new ItemPost());
+        HelperItem.setItem(item);
+        return strategyManager.getResponse(strategyPost);
     }
 
     /**
@@ -57,18 +69,18 @@ public class ServicesItem {
      * @param id   Item id.
      * @return Message.
      */
-    public Response update(final Item item, final String id) {
+    public Response update(final Item item, final Integer id) {
         HelperItem.setId(id);
-        HelperItem.setModelProject(item);
-        return strategyManager.getResponse(new ItemPut());
+        HelperItem.setItem(item);
+        return strategyManager.getResponse(strategyPut);
     }
 
     /**
      * @param id Item id.
      * @return Message.
      */
-    public Response delete(final String id) {
+    public Response delete(final Integer id) {
         HelperItem.setId(id);
-        return strategyManager.getResponse(new ItemDelete());
+        return strategyManager.getResponse(strategyDelete);
     }
 }
