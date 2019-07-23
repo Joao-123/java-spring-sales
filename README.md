@@ -87,7 +87,7 @@ BODY:
 }
 ```
 
-### DELETE USERS
+### DELETE ITEMS
 
 ```
 DELETE:            {Host}:{Port}/api/v1/items/{item_id}
