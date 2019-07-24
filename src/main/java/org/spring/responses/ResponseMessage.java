@@ -58,4 +58,12 @@ public final class ResponseMessage {
     public static String entityNotFound(final String entity) {
         return String.format("The %s does not exist", entity);
     }
+
+    /**
+     * @param entity entity.
+     * @return Message.
+     */
+    public static String entityHasRelation(final String entity) {
+        return String.format("The %s has relation, request cannot be applied", entity);
+    }
 }

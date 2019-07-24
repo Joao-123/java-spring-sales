@@ -1,13 +1,12 @@
 package org.spring.controllers;
 
-import org.spring.models.Sale;
+import org.spring.models.SaleItem;
 import org.spring.responses.Response;
 import org.spring.responses.ResponseBody;
-import org.spring.services.ServicesSale;
+import org.spring.services.ServicesSaleItem;
 import org.spring.support.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,18 +15,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * RestController.
  */
-@Controller
-public class ControllerSale {
+public class ControllerSaleItem {
 
     @Autowired
-    private ServicesSale servicesSale;
+    private ServicesSaleItem servicesSaleItem;
 
     /**
      * @return Response entity.
      */
-    @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_SALES)
+    @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_SALE_ITEMS)
     public ResponseEntity<ResponseBody> getAll() {
-        Response response = servicesSale.getAll();
+        Response response = servicesSaleItem.getAll();
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
 
@@ -35,30 +33,30 @@ public class ControllerSale {
      * @param id id.
      * @return Response entity.
      */
-    @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_SALES_WITH_ID)
+    @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_SALE_ITEMS_WITH_ID)
     public ResponseEntity<ResponseBody> getById(final @PathVariable Integer id) {
-        Response response = servicesSale.getById(id);
+        Response response = servicesSaleItem.getById(id);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
 
     /**
-     * @param sale sale.
+     * @param saleItem saleItem.
      * @return Response entity..
      */
-    @RequestMapping(method = RequestMethod.POST, value = Paths.PATH_SALES)
-    public ResponseEntity<ResponseBody> add(final @RequestBody Sale sale) {
-        Response response = servicesSale.add(sale);
+    @RequestMapping(method = RequestMethod.POST, value = Paths.PATH_SALE_ITEMS)
+    public ResponseEntity<ResponseBody> add(final @RequestBody SaleItem saleItem) {
+        Response response = servicesSaleItem.add(saleItem);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
 
     /**
-     * @param sale sale.
-     * @param id   id.
+     * @param saleItem saleItem.
+     * @param id       id.
      * @return Response entity..
      */
-    @RequestMapping(method = RequestMethod.PUT, value = Paths.PATH_SALES_WITH_ID)
-    public ResponseEntity<ResponseBody> update(final @RequestBody Sale sale, final @PathVariable Integer id) {
-        Response response = servicesSale.update(sale, id);
+    @RequestMapping(method = RequestMethod.PUT, value = Paths.PATH_SALE_ITEMS_WITH_ID)
+    public ResponseEntity<ResponseBody> update(final @RequestBody SaleItem saleItem, final @PathVariable Integer id) {
+        Response response = servicesSaleItem.update(saleItem, id);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
 
@@ -66,9 +64,9 @@ public class ControllerSale {
      * @param id id.
      * @return Response entity..
      */
-    @RequestMapping(method = RequestMethod.DELETE, value = Paths.PATH_SALES_WITH_ID)
+    @RequestMapping(method = RequestMethod.DELETE, value = Paths.PATH_SALE_ITEMS_WITH_ID)
     public ResponseEntity<ResponseBody> delete(final @PathVariable Integer id) {
-        Response response = servicesSale.delete(id);
+        Response response = servicesSaleItem.delete(id);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
 
     }

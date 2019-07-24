@@ -94,4 +94,17 @@ public final class ResponseBuilderUser {
                 .setData(null);
         return response;
     }
+
+    /**
+     * @return responses.
+     */
+    public static Response<User> getResponseConflictEntityHasRelations() {
+        Response<User> response = ResponseManager.getResponseUser();
+        response
+                .setHttpStatus(HttpStatus.CONFLICT)
+                .getBody()
+                .setTextMessage(ResponseMessage.entityHasRelation(HelperUser.getEntityName()))
+                .setData(HelperUser.getList());
+        return response;
+    }
 }

@@ -80,4 +80,17 @@ public final class ResponseBuilderSale {
                 .setData(null);
         return response;
     }
+
+    /**
+     * @return responses.
+     */
+    public static Response<Sale> getResponseConflictEntityHasRelations() {
+        Response<Sale> response = ResponseManager.getResponseSale();
+        response
+                .setHttpStatus(HttpStatus.CONFLICT)
+                .getBody()
+                .setTextMessage(ResponseMessage.entityHasRelation(HelperSale.getEntityName()))
+                .setData(HelperSale.getList());
+        return response;
+    }
 }
