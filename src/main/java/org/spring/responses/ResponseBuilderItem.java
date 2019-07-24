@@ -24,7 +24,7 @@ public final class ResponseBuilderItem {
         response
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
-                .setTextMessage(ResponseMessage.getSuccessfully(HelperItem.getEntity()))
+                .setTextMessage(ResponseMessage.getSuccessfully(HelperItem.getEntityName()))
                 .setData(HelperItem.getList());
         return response;
     }
@@ -37,7 +37,7 @@ public final class ResponseBuilderItem {
         response
                 .setHttpStatus(HttpStatus.CREATED)
                 .getBody()
-                .setTextMessage(ResponseMessage.createdSuccessfully(HelperItem.getEntity()))
+                .setTextMessage(ResponseMessage.createdSuccessfully(HelperItem.getEntityName()))
                 .setData(HelperItem.getList());
         return response;
     }
@@ -50,7 +50,7 @@ public final class ResponseBuilderItem {
         response
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
-                .setTextMessage(ResponseMessage.updatedSuccessfully(HelperItem.getEntity()))
+                .setTextMessage(ResponseMessage.updatedSuccessfully(HelperItem.getEntityName()))
                 .setData(HelperItem.getList());
         return response;
     }
@@ -63,21 +63,8 @@ public final class ResponseBuilderItem {
         response
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
-                .setTextMessage(ResponseMessage.deletedSuccessfully(HelperItem.getEntity()))
+                .setTextMessage(ResponseMessage.deletedSuccessfully(HelperItem.getEntityName()))
                 .setData(null);
-        return response;
-    }
-
-    /**
-     * @return responses.
-     */
-    public static Response<Item> getResponseConflict() {
-        Response<Item> response = ResponseManager.getResponseItem();
-        response
-                .setHttpStatus(HttpStatus.CONFLICT)
-                .getBody()
-                .setTextMessage(ResponseMessage.entityAlreadyExist(HelperItem.getEntity()))
-                .setData(HelperItem.getList());
         return response;
     }
 
@@ -89,7 +76,7 @@ public final class ResponseBuilderItem {
         response
                 .setHttpStatus(HttpStatus.NOT_FOUND)
                 .getBody()
-                .setTextMessage(ResponseMessage.getNotContent(HelperItem.getEntity()))
+                .setTextMessage(ResponseMessage.entityNotFound(HelperItem.getEntityName()))
                 .setData(null);
         return response;
     }

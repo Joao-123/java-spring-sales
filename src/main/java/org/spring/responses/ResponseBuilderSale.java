@@ -1,7 +1,7 @@
 package org.spring.responses;
 
 import org.spring.models.Sale;
-import org.spring.services.Sales.HelperSale;
+import org.spring.services.sales.HelperSale;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -24,7 +24,7 @@ public final class ResponseBuilderSale {
         response
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
-                .setTextMessage(ResponseMessage.getSuccessfully(HelperSale.getEntity()))
+                .setTextMessage(ResponseMessage.getSuccessfully(HelperSale.getEntityName()))
                 .setData(HelperSale.getList());
         return response;
     }
@@ -37,7 +37,7 @@ public final class ResponseBuilderSale {
         response
                 .setHttpStatus(HttpStatus.CREATED)
                 .getBody()
-                .setTextMessage(ResponseMessage.createdSuccessfully(HelperSale.getEntity()))
+                .setTextMessage(ResponseMessage.createdSuccessfully(HelperSale.getEntityName()))
                 .setData(HelperSale.getList());
         return response;
     }
@@ -45,12 +45,12 @@ public final class ResponseBuilderSale {
     /**
      * @return responses.
      */
-     public static Response<Sale> getResponseOkForPut() {
+    public static Response<Sale> getResponseOkForPut() {
         Response<Sale> response = ResponseManager.getResponseSale();
         response
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
-                .setTextMessage(ResponseMessage.updatedSuccessfully(HelperSale.getEntity()))
+                .setTextMessage(ResponseMessage.updatedSuccessfully(HelperSale.getEntityName()))
                 .setData(HelperSale.getList());
         return response;
     }
@@ -58,26 +58,13 @@ public final class ResponseBuilderSale {
     /**
      * @return responses.
      */
-     public static Response<Sale> getResponseOkForDelete() {
+    public static Response<Sale> getResponseOkForDelete() {
         Response<Sale> response = ResponseManager.getResponseSale();
         response
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
-                .setTextMessage(ResponseMessage.deletedSuccessfully(HelperSale.getEntity()))
+                .setTextMessage(ResponseMessage.deletedSuccessfully(HelperSale.getEntityName()))
                 .setData(null);
-        return response;
-    }
-
-    /**
-     * @return responses.
-     */
-     public static Response<Sale> getResponseConflict() {
-        Response<Sale> response = ResponseManager.getResponseSale();
-        response
-                .setHttpStatus(HttpStatus.CONFLICT)
-                .getBody()
-                .setTextMessage(ResponseMessage.entityAlreadyExist(HelperSale.getEntity()))
-                .setData(HelperSale.getList());
         return response;
     }
 
@@ -89,7 +76,7 @@ public final class ResponseBuilderSale {
         response
                 .setHttpStatus(HttpStatus.NOT_FOUND)
                 .getBody()
-                .setTextMessage(ResponseMessage.getNotContent(HelperSale.getEntity()))
+                .setTextMessage(ResponseMessage.entityNotFound(HelperSale.getEntityName()))
                 .setData(null);
         return response;
     }

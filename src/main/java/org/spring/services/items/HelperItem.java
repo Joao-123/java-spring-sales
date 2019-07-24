@@ -10,7 +10,7 @@ import java.util.List;
  */
 public final class HelperItem {
 
-    private static final String ENTITY = "item";
+    private static final String ENTITY_NAME = "item";
     private Integer id;
     private Item item;
     private static HelperItem helperItem;
@@ -50,22 +50,22 @@ public final class HelperItem {
     /**
      * @return Item.
      */
-    public static Item getItem() {
+    public static Item getEntity() {
         return getSingleton().item;
     }
 
     /**
      * @param item item.
      */
-    public static void setItem(final Item item) {
+    public static void setEntity(final Item item) {
         getSingleton().item = item;
     }
 
     /**
-     * @return ENTITY.
+     * @return ENTITY_NAME.
      */
-    public static String getEntity() {
-        return ENTITY;
+    public static String getEntityName() {
+        return ENTITY_NAME;
     }
 
     /**

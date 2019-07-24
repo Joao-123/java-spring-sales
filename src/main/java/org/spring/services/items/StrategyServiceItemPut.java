@@ -22,9 +22,9 @@ public class StrategyServiceItemPut implements StrategyService {
     @Override
     public Response getResponse() {
         if (repositoryItem.findById(HelperItem.getId()).orElse(null) != null) {
-            HelperItem.getItem().setId(HelperItem.getId());
-            repositoryItem.save(HelperItem.getItem());
-            HelperItem.getEmptyList().add(HelperItem.getItem());
+            HelperItem.getEntity().setId(HelperItem.getId());
+            repositoryItem.save(HelperItem.getEntity());
+            HelperItem.getEmptyList().add(HelperItem.getEntity());
             return ResponseBuilderItem.getResponseOkForPut();
         } else {
             return ResponseBuilderItem.getResponseNotFound();

@@ -23,10 +23,10 @@ public class StrategyServiceUserPost implements StrategyService {
      */
     @Override
     public Response getResponse() {
-        HelperUser.getEmptyList().add(HelperUser.getUser());
-        User user = repositoryUser.findById(HelperUser.getUser().getId()).orElse(null);
+        HelperUser.getEmptyList().add(HelperUser.getEntity());
+        User user = repositoryUser.findById(HelperUser.getEntity().getId()).orElse(null);
         if (user == null) {
-            repositoryUser.save(HelperUser.getUser());
+            repositoryUser.save(HelperUser.getEntity());
             return ResponseBuilderUser.getResponseOkForPost();
         } else {
             return ResponseBuilderUser.getResponseConflict();

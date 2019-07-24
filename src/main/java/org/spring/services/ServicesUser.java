@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * User Services.
+ * Users Services.
  */
 @Service
 public class ServicesUser {
@@ -43,15 +43,15 @@ public class ServicesUser {
     }
 
     /**
-     * @return modelProjectList.
+     * @return Response.
      */
     public Response getAll() {
         return strategyManager.getResponse(strategyGet);
     }
 
     /**
-     * @param id Item id.
-     * @return Item.
+     * @param id id.
+     * @return Response.
      */
     public Response getById(final String id) {
         HelperUser.setId(id);
@@ -60,27 +60,27 @@ public class ServicesUser {
 
     /**
      * @param user user.
-     * @return Message.
+     * @return Response.
      */
     public Response add(final User user) {
-        HelperUser.setUser(user);
+        HelperUser.setEntity(user);
         return strategyManager.getResponse(strategyPost);
     }
 
     /**
      * @param user user.
      * @param id   id.
-     * @return Message.
+     * @return Response.
      */
     public Response update(final User user, final String id) {
         HelperUser.setId(id);
-        HelperUser.setUser(user);
+        HelperUser.setEntity(user);
         return strategyManager.getResponse(strategyPut);
     }
 
     /**
-     * @param id Item id.
-     * @return Message.
+     * @param id id.
+     * @return Response.
      */
     public Response delete(final String id) {
         HelperUser.setId(id);

@@ -30,6 +30,8 @@ checkstyle {
     toolVersion = '8.11'
 }
 
+checkstyleMain.exclude '**/org/spring/Application.java'
+
 // FindBugs configuration
 findbugs {
     toolVersion = '3.0.1'

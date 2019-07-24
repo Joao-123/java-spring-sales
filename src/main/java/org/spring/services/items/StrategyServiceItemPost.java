@@ -21,8 +21,8 @@ public class StrategyServiceItemPost implements StrategyService {
      */
     @Override
     public Response getResponse() {
-        HelperItem.getEmptyList().add(HelperItem.getItem());
-        repositoryItem.save(HelperItem.getItem());
+        HelperItem.getEmptyList().add(HelperItem.getEntity());
+        repositoryItem.save(HelperItem.getEntity());
         return ResponseBuilderItem.getResponseOkForPost();
     }
 }

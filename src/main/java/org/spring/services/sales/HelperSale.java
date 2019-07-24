@@ -1,4 +1,4 @@
-package org.spring.services.Sales;
+package org.spring.services.sales;
 
 import org.spring.models.Sale;
 
@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Helper Class
+ * Helper Class.
  */
-public class HelperSale {
+public final class HelperSale {
 
-    private static final String ENTITY = "sale";
+    private static final String ENTITY_NAME = "sale";
     private Integer id;
     private Sale sale;
     private static HelperSale helperSale;
@@ -50,22 +50,22 @@ public class HelperSale {
     /**
      * @return Item.
      */
-    public static Sale getSale() {
+    public static Sale getEntity() {
         return getSingleton().sale;
     }
 
     /**
      * @param sale sale.
      */
-    public static void setSale(final Sale sale) {
+    public static void setEntity(final Sale sale) {
         getSingleton().sale = sale;
     }
 
     /**
-     * @return ENTITY.
+     * @return ENTITY_NAME.
      */
-    public static String getEntity() {
-        return ENTITY;
+    public static String getEntityName() {
+        return ENTITY_NAME;
     }
 
     /**

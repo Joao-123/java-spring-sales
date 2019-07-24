@@ -24,11 +24,11 @@ public class StrategyServiceUserPut implements StrategyService {
     public Response getResponse() {
         User user = repositoryUser.findById(HelperUser.getId()).orElse(null);
         if (user != null) {
-            if (!HelperUser.getId().equals(HelperUser.getUser().getId())) {
+            if (!HelperUser.getId().equals(HelperUser.getEntity().getId())) {
                 repositoryUser.deleteById(HelperUser.getId());
             }
-            repositoryUser.save(HelperUser.getUser());
-            HelperUser.getEmptyList().add(HelperUser.getUser());
+            repositoryUser.save(HelperUser.getEntity());
+            HelperUser.getEmptyList().add(HelperUser.getEntity());
             return ResponseBuilderUser.getResponseOkForPut();
         } else {
             return ResponseBuilderUser.getResponseNotFound();

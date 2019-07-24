@@ -2,8 +2,13 @@ package org.spring.services;
 
 
 import org.spring.models.Item;
-import org.spring.services.items.*;
 import org.spring.responses.Response;
+import org.spring.services.items.HelperItem;
+import org.spring.services.items.StrategyServiceItemDelete;
+import org.spring.services.items.StrategyServiceItemGet;
+import org.spring.services.items.StrategyServiceItemGetById;
+import org.spring.services.items.StrategyServiceItemPost;
+import org.spring.services.items.StrategyServiceItemPut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,15 +45,15 @@ public class ServicesItem {
     }
 
     /**
-     * @return Items.
+     * @return Response.
      */
     public Response getAll() {
         return strategyManager.getResponse(strategyGet);
     }
 
     /**
-     * @param id Item id.
-     * @return Item.
+     * @param id id.
+     * @return Response.
      */
     public Response getById(final Integer id) {
         HelperItem.setId(id);
@@ -56,28 +61,28 @@ public class ServicesItem {
     }
 
     /**
-     * @param item Item.
-     * @return Message.
+     * @param item item.
+     * @return Response.
      */
     public Response add(final Item item) {
-        HelperItem.setItem(item);
+        HelperItem.setEntity(item);
         return strategyManager.getResponse(strategyPost);
     }
 
     /**
-     * @param item Item.
-     * @param id   Item id.
-     * @return Message.
+     * @param item item.
+     * @param id   id.
+     * @return Response.
      */
     public Response update(final Item item, final Integer id) {
         HelperItem.setId(id);
-        HelperItem.setItem(item);
+        HelperItem.setEntity(item);
         return strategyManager.getResponse(strategyPut);
     }
 
     /**
-     * @param id Item id.
-     * @return Message.
+     * @param id id.
+     * @return Response.
      */
     public Response delete(final Integer id) {
         HelperItem.setId(id);

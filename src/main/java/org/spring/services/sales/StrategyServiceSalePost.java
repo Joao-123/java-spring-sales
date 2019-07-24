@@ -1,4 +1,4 @@
-package org.spring.services.Sales;
+package org.spring.services.sales;
 
 import org.spring.models.User;
 import org.spring.repository.RepositorySale;
@@ -26,11 +26,11 @@ public class StrategyServiceSalePost implements StrategyService {
      */
     @Override
     public Response getResponse() {
-        HelperSale.getEmptyList().add(HelperSale.getSale());
-        User client = repositoryUser.findById(HelperSale.getSale().getIdClient()).orElse(null);
-        User seller = repositoryUser.findById(HelperSale.getSale().getIdSeller()).orElse(null);
+        HelperSale.getEmptyList().add(HelperSale.getEntity());
+        User client = repositoryUser.findById(HelperSale.getEntity().getIdClient()).orElse(null);
+        User seller = repositoryUser.findById(HelperSale.getEntity().getIdSeller()).orElse(null);
         if (client != null && seller != null) {
-            repositorySale.save(HelperSale.getSale());
+            repositorySale.save(HelperSale.getEntity());
             return ResponseBuilderSale.getResponseOkForPost();
         } else {
             return ResponseBuilderSale.getResponseNotFound();

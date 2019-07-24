@@ -1,4 +1,4 @@
-package org.spring.services.Sales;
+package org.spring.services.sales;
 
 import org.spring.repository.RepositorySale;
 import org.spring.responses.ResponseBuilderSale;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * Service.
  */
 @Service
-public class StrategyServiceSalePut implements StrategyService {
+public class StrategyServiceSaleDelete implements StrategyService {
 
     @Autowired
     private RepositorySale repositorySale;
@@ -22,10 +22,8 @@ public class StrategyServiceSalePut implements StrategyService {
     @Override
     public Response getResponse() {
         if (repositorySale.findById(HelperSale.getId()).orElse(null) != null) {
-            HelperSale.getSale().setId(HelperSale.getId());
-            repositorySale.save(HelperSale.getSale());
-            HelperSale.getEmptyList().add(HelperSale.getSale());
-            return ResponseBuilderSale.getResponseOkForPut();
+            repositorySale.deleteById(HelperSale.getId());
+            return ResponseBuilderSale.getResponseOkForDelete();
         } else {
             return ResponseBuilderSale.getResponseNotFound();
         }

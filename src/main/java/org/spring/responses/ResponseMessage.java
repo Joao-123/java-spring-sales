@@ -23,14 +23,6 @@ public final class ResponseMessage {
      * @param entity entity.
      * @return Message.
      */
-    public static String getNotContent(final String entity) {
-        return String.format("The %s does not exist", entity);
-    }
-
-    /**
-     * @param entity entity.
-     * @return Message.
-     */
     public static String createdSuccessfully(final String entity) {
         return String.format("The %s was created successfully", entity);
     }
@@ -55,15 +47,15 @@ public final class ResponseMessage {
      * @param entity entity.
      * @return Message.
      */
-    public static String entityDoesNotExist(final String entity) {
-        return String.format("The %s doesn't exist", entity);
+    public static String entityAlreadyExist(final String entity) {
+        return String.format("The %s already exist", entity);
     }
 
     /**
      * @param entity entity.
      * @return Message.
      */
-    public static String entityAlreadyExist(final String entity) {
-        return String.format("The %s already exist", entity);
+    public static String entityNotFound(final String entity) {
+        return String.format("The %s does not exist", entity);
     }
 }

@@ -2,6 +2,7 @@ package org.spring.responses;
 
 import org.spring.models.Item;
 import org.spring.models.Sale;
+import org.spring.models.SaleItem;
 import org.spring.models.User;
 
 /**
@@ -13,6 +14,7 @@ public final class ResponseManager {
     private Response<User> userResponse;
     private Response<Item> itemResponse;
     private Response<Sale> saleResponse;
+    private Response<SaleItem> saleItemResponse;
 
     /**
      * Constructor.
@@ -21,6 +23,7 @@ public final class ResponseManager {
         userResponse = new Response<>();
         itemResponse = new Response<>();
         saleResponse = new Response<>();
+        saleItemResponse = new Response<>();
     }
 
     /**
@@ -52,5 +55,12 @@ public final class ResponseManager {
      */
     public static Response<Sale> getResponseSale() {
         return getSingleton().saleResponse;
+    }
+
+    /**
+     * @return Response.
+     */
+    public static Response<SaleItem> getResponseSaleItem() {
+        return getSingleton().saleItemResponse;
     }
 }
