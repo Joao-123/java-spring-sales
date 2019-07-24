@@ -21,7 +21,7 @@ BODY:
     "password": "pass123",
     "name": "Sheldon",
     "lastName": "Cooper",
-    "birthDate": "11/10/1999",
+    "birthDate": "1994-05-26",
     "email": "Sheldon.Cooper@gmail.com",
     "type": "admin"
 }
@@ -38,7 +38,7 @@ BODY:
     "password": "secret123",
     "name": "Sheldon",
     "lastName": "Cooper",
-    "birthDate": "11/10/2001",
+    "birthDate": "1994-05-26",
     "email": "Sheldon_Cooper@gmail.com",
     "type": "student"
 }
