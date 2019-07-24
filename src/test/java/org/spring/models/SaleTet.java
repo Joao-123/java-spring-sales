@@ -4,9 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 /**
  * Test.
@@ -29,11 +26,12 @@ public class SaleTet {
     @Test
     public void test() {
         // Create User
-        sale.setId(1001);
+        final Integer id = 1001;
+        sale.setId(id);
         sale.setIdClient("5897425");
         sale.setIdSeller("9988021");
         // Assert Sale ID
-        Assert.assertEquals(1001, sale.getId(), 1);
+        Assert.assertEquals(id, sale.getId(), 1);
         // Assert User ID
         Assert.assertEquals("5897425", sale.getIdClient());
         // Assert List Products IDs

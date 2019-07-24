@@ -43,7 +43,7 @@ public class ControllerUserTest {
     // Mock the service, here we test only the controller.
     // @MockBean is a Spring annotation that depends on mockito framework
     @MockBean
-    private ServicesUser ServicesUserMocked;
+    private ServicesUser servicesUserMocked;
 
     private Response<User> response;
 
@@ -85,17 +85,17 @@ public class ControllerUserTest {
         responseBody.setTextMessage(ResponseMessage.getSuccessfully("Users"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        BDDMockito.when(ServicesUserMocked.getAll()).thenReturn(response);
+        BDDMockito.when(servicesUserMocked.getAll()).thenReturn(response);
         // This is the JSON expected.
-        String expectedBody = "{\"data\":[{\"" +
-                "id\":\"5421857\",\"" +
-                "password\":\"pass123\",\"" +
-                "name\":\"Isac\",\"" +
-                "lastName\":\"Newton\",\"" +
-                "birthDate\":\"26/06/1996\",\"" +
-                "email\":\"Isac.Newton@gmail.com\",\"" +
-                "type\":\"admin\"}],\"" +
-                "textMessage\":\"The get Users successfully\"}";
+        String expectedBody = "{\"data\":[{\""
+                + "id\":\"5421857\",\""
+                + "password\":\"pass123\",\""
+                + "name\":\"Isac\",\""
+                + "lastName\":\"Newton\",\""
+                + "birthDate\":\"26/06/1996\",\""
+                + "email\":\"Isac.Newton@gmail.com\",\""
+                + "type\":\"admin\"}],\""
+                + "textMessage\":\"The get Users successfully\"}";
         // Request and Asserts.
         this.mockMvc
                 .perform(MockMvcRequestBuilders.get("/api/v1/users"))
@@ -114,7 +114,7 @@ public class ControllerUserTest {
         responseBody.setTextMessage(ResponseMessage.getSuccessfully("Users"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        BDDMockito.when(ServicesUserMocked.getById("5421857")).thenReturn(response);
+        BDDMockito.when(servicesUserMocked.getById("5421857")).thenReturn(response);
         // Request and Asserts.
         this.mockMvc
                 .perform(MockMvcRequestBuilders.get("/api/v1/users/5421857"))
@@ -143,7 +143,7 @@ public class ControllerUserTest {
         responseBody.setTextMessage(ResponseMessage.createdSuccessfully("User"));
         response.setHttpStatus(HttpStatus.CREATED).setBody(responseBody);
         // Mock Services
-        Mockito.when(ServicesUserMocked.add(Mockito.any(User.class))).thenReturn(response);
+        Mockito.when(servicesUserMocked.add(Mockito.any(User.class))).thenReturn(response);
         String bodyRequest = TestSupport.getInstance().mapToJson(mockUser);
         // Request and Asserts.
         this.mockMvc
@@ -175,7 +175,7 @@ public class ControllerUserTest {
         responseBody.setTextMessage(ResponseMessage.updatedSuccessfully("User"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        Mockito.when(ServicesUserMocked.update(Mockito.any(User.class),
+        Mockito.when(servicesUserMocked.update(Mockito.any(User.class),
                 Mockito.any(String.class))).thenReturn(response);
         String bodyRequest = TestSupport.getInstance().mapToJson(mockUser);
         // Request and Asserts.
@@ -208,7 +208,7 @@ public class ControllerUserTest {
         responseBody.setTextMessage(ResponseMessage.deletedSuccessfully("Users"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        BDDMockito.when(ServicesUserMocked.delete("5421857")).thenReturn(response);
+        BDDMockito.when(servicesUserMocked.delete("5421857")).thenReturn(response);
         // Request and Asserts.
         this.mockMvc
                 .perform(MockMvcRequestBuilders.delete("/api/v1/users/5421857"))

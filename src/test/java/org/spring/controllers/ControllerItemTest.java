@@ -58,9 +58,11 @@ public class ControllerItemTest {
         responseBody = new ResponseBody<>();
         // Build list of items and responses body.
         mockItem = new Item();
-        mockItem.setId(1001);
+        final Integer id = 1001;
+        mockItem.setId(id);
         mockItem.setName("Coca cola");
-        mockItem.setPrice(10.0);
+        final Double price = 10.0;
+        mockItem.setPrice(price);
         List<Item> listItems;
         listItems = new ArrayList<>();
         listItems.add(mockItem);
@@ -91,7 +93,7 @@ public class ControllerItemTest {
     }
 
     /**
-     * Test1. Get by id.
+     * Test2. Get by id.
      *
      * @throws Exception Exception.
      */
@@ -142,7 +144,7 @@ public class ControllerItemTest {
     }
 
     /**
-     * Test3
+     * Test4.
      *
      * @throws Exception Exception.
      */
