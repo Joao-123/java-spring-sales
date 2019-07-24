@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class Helper.
+ * Helper Class.
  */
 public final class HelperUser {
 

@@ -1,6 +1,6 @@
 package org.spring.services;
 
-import org.spring.support.Response;
+import org.spring.responses.Response;
 
 /**
  * Strategy Manager.
@@ -8,10 +8,10 @@ import org.spring.support.Response;
 public class StrategyManager {
 
     /**
-     * @param strategyResponse strategy Response.
+     * @param strategyServices strategy Response.
      * @return Response.
      */
-    public Response getResponse(final StrategyResponse strategyResponse) {
-        return strategyResponse.getResponse();
+    public Response getResponse(final StrategyService strategyServices) {
+        return strategyServices.getResponse();
     }
 }

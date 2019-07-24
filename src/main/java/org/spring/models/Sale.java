@@ -1,15 +1,24 @@
 package org.spring.models;
 
-import java.util.List;
+
+import javax.persistence.*;
 
 /**
  * Class.
  */
+@Entity
+@Table(name = "sales")
 public class Sale {
-    private String id;
-    private String sellerId;
-    private String clientId;
-    private List<String> listItemsIds;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "id_seller")
+    private String idSeller;
+    @Column(name = "id_client")
+    private String idClient;
+    @Column(name = "date")
     private String date;
 
     /**
@@ -21,29 +30,29 @@ public class Sale {
     /**
      * @return id.
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id id.
      */
-    public void setId(final String id) {
+    public void setId(final Integer id) {
         this.id = id;
     }
 
     /**
      * @return user id.
      */
-    public String getSellerId() {
-        return sellerId;
+    public String getIdSeller() {
+        return idSeller;
     }
 
     /**
-     * @param sellerId user id.
+     * @param idSeller user id.
      */
-    public void setSellerId(final String sellerId) {
-        this.sellerId = sellerId;
+    public void setIdSeller(final String idSeller) {
+        this.idSeller = idSeller;
     }
 
     /**
@@ -61,30 +70,16 @@ public class Sale {
     }
 
     /**
-     * @return list.
+     * @return getIdClient.
      */
-    public List<String> getListItemsIds() {
-        return listItemsIds;
+    public String getIdClient() {
+        return idClient;
     }
 
     /**
-     * @param listItemsIds list.
+     * @param idClient idClient.
      */
-    public void setListItemsIds(final List<String> listItemsIds) {
-        this.listItemsIds = listItemsIds;
-    }
-
-    /**
-     * @return getClientId.
-     */
-    public String getClientId() {
-        return clientId;
-    }
-
-    /**
-     * @param clientId clientId.
-     */
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
+    public void setIdClient(String idClient) {
+        this.idClient = idClient;
     }
 }

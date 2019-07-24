@@ -2,20 +2,18 @@ package org.spring.services.items;
 
 import org.spring.models.Item;
 import org.spring.repository.RepositoryItem;
-import org.spring.services.StrategyResponse;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseManager;
+import org.spring.responses.ResponseBuilderItem;
+import org.spring.services.StrategyService;
+import org.spring.responses.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 
 /**
- * Project Get by Id.
+ * Service.
  */
 @Service
-public class StrategyServiceItemGetById implements StrategyResponse {
+public class StrategyServiceItemGetById implements StrategyService {
 
     @Autowired
     private RepositoryItem repositoryItem;
@@ -25,21 +23,12 @@ public class StrategyServiceItemGetById implements StrategyResponse {
      */
     @Override
     public Response getResponse() {
-        Response<Item> response = ResponseManager.getResponseItem();
-        response
-                .setHttpStatus(HttpStatus.NOT_FOUND)
-                .getBody()
-                .setTextMessage(MessageManager.getNotContent(HelperItem.getEntity()))
-                .setData(null);
-        Item user = repositoryItem.findById(HelperItem.getId()).orElse(null);
-        if (user != null) {
-            HelperItem.getEmptyList().add(user);
-            response
-                    .setHttpStatus(HttpStatus.OK)
-                    .getBody()
-                    .setTextMessage(MessageManager.getSuccessfully(HelperItem.getEntity()))
-                    .setData(HelperItem.getList());
+        Item item = repositoryItem.findById(HelperItem.getId()).orElse(null);
+        if (item != null) {
+            HelperItem.getEmptyList().add(item);
+            return ResponseBuilderItem.getResponseOkForGet();
+        } else {
+            return ResponseBuilderItem.getResponseNotFound();
         }
-        return response;
     }
 }

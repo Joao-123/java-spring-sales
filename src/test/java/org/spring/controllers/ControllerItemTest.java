@@ -9,9 +9,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.spring.models.Item;
 import org.spring.services.ServicesItem;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseBody;
+import org.spring.responses.ResponseMessage;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseBody;
 import org.spring.support.TestSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -56,7 +56,7 @@ public class ControllerItemTest {
     public void setUp() {
         response = new Response<>();
         responseBody = new ResponseBody<>();
-        // Build list of items and response body.
+        // Build list of items and responses body.
         mockItem = new Item();
         mockItem.setId("1001");
         mockItem.setName("Coca cola");
@@ -75,7 +75,7 @@ public class ControllerItemTest {
     @Test
     public void test1() throws Exception {
         // Build Response
-        responseBody.setTextMessage(MessageManager.getSuccessfully("Items"));
+        responseBody.setTextMessage(ResponseMessage.getSuccessfully("Items"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
         Mockito.when(servicesItemMocked.getAll()).thenReturn(response);
@@ -98,7 +98,7 @@ public class ControllerItemTest {
     @Test
     public void test2() throws Exception {
         // Build Response
-        responseBody.setTextMessage(MessageManager.getSuccessfully("Item"));
+        responseBody.setTextMessage(ResponseMessage.getSuccessfully("Item"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
         Mockito.when(servicesItemMocked.getById(Mockito.any(String.class))).thenReturn(response);
@@ -121,7 +121,7 @@ public class ControllerItemTest {
     @Test
     public void test3() throws Exception {
         // Build Response
-        responseBody.setTextMessage(MessageManager.createdSuccessfully("Item"));
+        responseBody.setTextMessage(ResponseMessage.createdSuccessfully("Item"));
         response.setHttpStatus(HttpStatus.CREATED).setBody(responseBody);
         // Mock Services
         String inputInJson = TestSupport.getInstance().mapToJson(mockItem);
@@ -149,7 +149,7 @@ public class ControllerItemTest {
     @Test
     public void test4() throws Exception {
         // Build Response
-        responseBody.setTextMessage(MessageManager.createdSuccessfully("Item"));
+        responseBody.setTextMessage(ResponseMessage.createdSuccessfully("Item"));
         response.setHttpStatus(HttpStatus.CREATED).setBody(responseBody);
         // Mock Services
         String inputInJson = TestSupport.getInstance().mapToJson(mockItem);

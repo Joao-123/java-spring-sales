@@ -1,27 +1,26 @@
-package org.spring.services.users;
+package org.spring.services.Sales;
 
-import org.spring.models.User;
-import org.spring.repository.RepositoryUser;
+import org.spring.models.Sale;
+import org.spring.repository.RepositorySale;
 import org.spring.responses.ResponseBuilderUser;
 import org.spring.services.StrategyService;
 import org.spring.responses.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 /**
  * Service.
  */
 @Service
-public class StrategyServiceUserGet implements StrategyService {
+public class StrategyServiceSaleGet implements StrategyService {
 
     @Autowired
-    private RepositoryUser repositoryUser;
+    private RepositorySale repositorySale;
 
     /**
      * Constructor.
      */
-    public StrategyServiceUserGet() {
+    public StrategyServiceSaleGet() {
     }
 
     /**
@@ -29,9 +28,9 @@ public class StrategyServiceUserGet implements StrategyService {
      */
     @Override
     public Response getResponse() {
-        Iterable<User> iterable = this.repositoryUser.findAll();
-        HelperUser.getEmptyList();
-        iterable.forEach(HelperUser.getList()::add);
+        Iterable<Sale> iterable = this.repositorySale.findAll();
+        HelperSale.getEmptyList();
+        iterable.forEach(HelperSale.getList()::add);
         return ResponseBuilderUser.getResponseOkForGet();
     }
 }

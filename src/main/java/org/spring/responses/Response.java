@@ -1,4 +1,4 @@
-package org.spring.support;
+package org.spring.responses;
 
 import org.springframework.http.HttpStatus;
 

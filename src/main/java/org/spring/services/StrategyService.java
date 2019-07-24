@@ -1,12 +1,12 @@
 package org.spring.services;
 
-import org.spring.support.Response;
+import org.spring.responses.Response;
 
 
 /**
  * Response.
  */
-public interface StrategyResponse {
+public interface StrategyService {
 
     /**
      * @return Response.

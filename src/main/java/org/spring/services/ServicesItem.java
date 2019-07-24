@@ -3,7 +3,7 @@ package org.spring.services;
 
 import org.spring.models.Item;
 import org.spring.services.items.*;
-import org.spring.support.Response;
+import org.spring.responses.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

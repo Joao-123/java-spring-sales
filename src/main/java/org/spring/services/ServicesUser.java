@@ -1,13 +1,13 @@
 package org.spring.services;
 
 import org.spring.models.User;
+import org.spring.responses.Response;
 import org.spring.services.users.HelperUser;
 import org.spring.services.users.StrategyServiceUserDelete;
 import org.spring.services.users.StrategyServiceUserGet;
 import org.spring.services.users.StrategyServiceUserGetById;
 import org.spring.services.users.StrategyServiceUserPost;
 import org.spring.services.users.StrategyServiceUserPut;
-import org.spring.support.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

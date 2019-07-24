@@ -1,14 +1,14 @@
-package org.spring.support;
+package org.spring.responses;
 
 /**
  * Class.
  */
-public final class MessageManager {
+public final class ResponseMessage {
 
     /**
      * Constructor.
      */
-    private MessageManager() {
+    private ResponseMessage() {
     }
 
     /**
@@ -57,5 +57,13 @@ public final class MessageManager {
      */
     public static String entityDoesNotExist(final String entity) {
         return String.format("The %s doesn't exist", entity);
+    }
+
+    /**
+     * @param entity entity.
+     * @return Message.
+     */
+    public static String entityAlreadyExist(final String entity) {
+        return String.format("The %s already exist", entity);
     }
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Helper Project Class.
+ * Helper Class.
  */
 public final class HelperItem {
 
@@ -83,4 +83,3 @@ public final class HelperItem {
         return getSingleton().itemList;
     }
 }
-
