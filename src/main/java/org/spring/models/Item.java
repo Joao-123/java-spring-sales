@@ -23,7 +23,7 @@ public class Item {
     private String name;
 
     @Column(name = "price")
-    private Float price;
+    private Double price;
 
     @Column(name = "stock")
     private Integer stock;
@@ -65,14 +65,14 @@ public class Item {
     /**
      * @return price.
      */
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
     /**
      * @param price price.
      */
-    public void setPrice(final Float price) {
+    public void setPrice(final Double price) {
         this.price = price;
     }
 

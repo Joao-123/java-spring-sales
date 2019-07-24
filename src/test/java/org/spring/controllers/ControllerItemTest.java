@@ -58,9 +58,9 @@ public class ControllerItemTest {
         responseBody = new ResponseBody<>();
         // Build list of items and responses body.
         mockItem = new Item();
-        mockItem.setId("1001");
+        mockItem.setId(1001);
         mockItem.setName("Coca cola");
-        mockItem.setPrice("10");
+        mockItem.setPrice(10.0);
         List<Item> listItems;
         listItems = new ArrayList<>();
         listItems.add(mockItem);
@@ -81,11 +81,11 @@ public class ControllerItemTest {
         Mockito.when(servicesItemMocked.getAll()).thenReturn(response);
         // Request and Asserts.
         this.mockMvc
-                .perform(MockMvcRequestBuilders.post("/api/v1/items"))
+                .perform(MockMvcRequestBuilders.get("/api/v1/items"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10.0"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
                         .value("The get Items successfully"));
     }
@@ -101,14 +101,14 @@ public class ControllerItemTest {
         responseBody.setTextMessage(ResponseMessage.getSuccessfully("Item"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        Mockito.when(servicesItemMocked.getById(Mockito.any(String.class))).thenReturn(response);
+        Mockito.when(servicesItemMocked.getById(Mockito.any(Integer.class))).thenReturn(response);
         // Request and Asserts.
         this.mockMvc
                 .perform(MockMvcRequestBuilders.get("/api/v1/items/1001"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10.0"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
                         .value("The get Item successfully"));
     }
@@ -162,7 +162,7 @@ public class ControllerItemTest {
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10.0"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
                         .value("The Item was created successfully"));
     }

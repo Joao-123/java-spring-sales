@@ -25,11 +25,11 @@ public class ItemTest {
      */
     @Test
     public void test() {
-        item.setId("1001");
+        item.setId(1001);
         item.setName("Coca cola");
-        item.setPrice("10");
-        Assert.assertEquals("1001", item.getId());
+        item.setPrice(10.0);
+        Assert.assertEquals(1001, item.getId(), 1);
         Assert.assertEquals("Coca cola", item.getName());
-        Assert.assertEquals("10", item.getPrice());
+        Assert.assertEquals(10.0, item.getPrice(), 1);
     }
 }

@@ -29,23 +29,16 @@ public class SaleTet {
     @Test
     public void test() {
         // Create User
-        sale.setId("1000001");
-        sale.setUserId("5897425");
-        final List<String> listProductIds = new ArrayList<>();
-        listProductIds.add("1000001");
-        listProductIds.add("1002");
-        listProductIds.add("1004");
-        listProductIds.add("1005");
-        sale.setListItemsIds(listProductIds);
-
+        sale.setId(1001);
+        sale.setIdClient("5897425");
+        sale.setIdSeller("9988021");
         // Assert Sale ID
-        Assert.assertEquals("1000001", sale.getId());
+        Assert.assertEquals(1001, sale.getId(), 1);
         // Assert User ID
-        Assert.assertEquals("5897425", sale.getUserId());
+        Assert.assertEquals("5897425", sale.getIdClient());
         // Assert List Products IDs
-        Assert.assertArrayEquals(listProductIds.toArray(), sale.getListItemsIds().toArray());
+        Assert.assertEquals("9988021", sale.getIdSeller());
         // Assert Date.
         sale.setDate("26/06/2019");
-
     }
 }
