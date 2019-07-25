@@ -4,14 +4,14 @@
 
 ```
 GET USERS
-GET:            {Host}:{Port}/api/v1/users
-GET:            {Host}:{Port}/api/v1/users/{user_id}
-GET EXAMPLE:    localhost:8080/api/v1/users
-GET EXAMPLE:    localhost:8080/api/v1/users/5814525
+{Host}:{Port}/api/v1/users
+{Host}:{Port}/api/v1/users/{user_id}
+localhost:8080/api/v1/users
+localhost:8080/api/v1/users/5814525
 
 POST USERS
-POST:            {Host}:{Port}/api/v1/users
-POST EXAMPLE:    localhost:8080/api/v1/users
+{Host}:{Port}/api/v1/users
+localhost:8080/api/v1/users
 BODY:
 {
     "id": "5814525",
@@ -24,8 +24,8 @@ BODY:
 }
 
 PUT USERS
-PUT:            {Host}:{Port}/api/v1/users/{user_id}
-PUT EXAMPLE:    localhost:8080/api/v1/users/5814527
+{Host}:{Port}/api/v1/users/{user_id}
+localhost:8080/api/v1/users/5814527
 BODY:
 {
     "id": "5814525",
@@ -38,22 +38,22 @@ BODY:
 }
 
 DELETE USERS
-DELETE:            {Host}:{Port}/api/v1/users/{user_id}
-DELETE EXAMPLE:    localhost:8080/api/v1/users/5814527
+{Host}:{Port}/api/v1/users/{user_id}
+localhost:8080/api/v1/users/5814527
 ```
 
 ### ITEMS
 
 ```
 GET ITEMS
-GET:            {Host}:{Port}/api/v1/items
-GET:            {Host}:{Port}/api/v1/items/{item_id}
-GET EXAMPLE:    localhost:8080/api/v1/items
-GET EXAMPLE:    localhost:8080/api/v1/items/1001
+{Host}:{Port}/api/v1/items
+{Host}:{Port}/api/v1/items/{item_id}
+localhost:8080/api/v1/items
+localhost:8080/api/v1/items/1001
 
 POST ITEMS
-POST:            {Host}:{Port}/api/v1/items
-POST EXAMPLE:    localhost:8080/api/v1/items
+{Host}:{Port}/api/v1/items
+localhost:8080/api/v1/items
 BODY:
 {
     "name": "Drink RedBeer",
@@ -62,8 +62,8 @@ BODY:
 }
 
 PUT ITEMS
-PUT:            {Host}:{Port}/api/v1/items/{item_id}
-PUT EXAMPLE:    localhost:8080/api/v1/items/1001
+{Host}:{Port}/api/v1/items/{item_id}
+localhost:8080/api/v1/items/1001
 BODY:
 {
     "name": "Drink GreenBeer",
@@ -72,22 +72,22 @@ BODY:
 }
 
 DELETE ITEMS
-DELETE:            {Host}:{Port}/api/v1/items/{item_id}
-DELETE EXAMPLE:    localhost:8080/api/v1/items/1001
+{Host}:{Port}/api/v1/items/{item_id}
+localhost:8080/api/v1/items/1001
 ```
 
 ### SALES
 
 ```
 GET SALES
-GET:            {Host}:{Port}/api/v1/sales
-GET:            {Host}:{Port}/api/v1/sales/{sale_id}
-GET EXAMPLE:    localhost:8080/api/v1/sales
-GET EXAMPLE:    localhost:8080/api/v1/sales/1001
+{Host}:{Port}/api/v1/sales
+{Host}:{Port}/api/v1/sales/{sale_id}
+localhost:8080/api/v1/sales
+localhost:8080/api/v1/sales/1001
 
 POST SALES
-POST:            {Host}:{Port}/api/v1/sales
-POST EXAMPLE:    localhost:8080/api/v1/sales
+{Host}:{Port}/api/v1/sales
+localhost:8080/api/v1/sales
 BODY:
 {
     "idSeller": "9988555",
@@ -96,8 +96,8 @@ BODY:
 }
 
 PUT SALES
-PUT:            {Host}:{Port}/api/v1/sales/{sale_id}
-PUT EXAMPLE:    localhost:8080/api/v1/sales/1001
+{Host}:{Port}/api/v1/sales/{sale_id}
+localhost:8080/api/v1/sales/1001
 BODY:
 {
     "idSeller": "9988555",
@@ -106,22 +106,22 @@ BODY:
 }
 
 DELETE SALES
-DELETE:            {Host}:{Port}/api/v1/sales/{sale_id}
-DELETE EXAMPLE:    localhost:8080/api/v1/sales/1001
+{Host}:{Port}/api/v1/sales/{sale_id}
+localhost:8080/api/v1/sales/1001
 ```
 
 ### SALES ITEMS RELATION
 
 ```
 GET SALES_ITEMS
-GET:            {Host}:{Port}/api/v1/sales/items
-GET:            {Host}:{Port}/api/v1/sales/items/{sale_item_id}
-GET EXAMPLE:    localhost:8080/api/v1/sales/items
-GET EXAMPLE:    localhost:8080/api/v1/sales/items/1001
+{Host}:{Port}/api/v1/sales/items
+{Host}:{Port}/api/v1/sales/items/{sale_item_id}
+localhost:8080/api/v1/sales/items
+localhost:8080/api/v1/sales/items/1001
 
 POST SALES_ITEMS
-POST:            {Host}:{Port}/api/v1/sales/items
-POST EXAMPLE:    localhost:8080/api/v1/sales/items
+{Host}:{Port}/api/v1/sales/items
+localhost:8080/api/v1/sales/items
 BODY:
 {
     "idSale": 1001,
@@ -130,8 +130,8 @@ BODY:
 }
 
 PUT SALES_ITEMS
-PUT:            {Host}:{Port}/api/v1/sales/items/{sale_item_id}
-PUT EXAMPLE:    localhost:8080/api/v1/sales/items/1001
+{Host}:{Port}/api/v1/sales/items/{sale_item_id}
+localhost:8080/api/v1/sales/items/1001
 BODY:
 {
     "idSale": 1010,
@@ -140,6 +140,6 @@ BODY:
 }
 
 DELETE SALES_ITEMS
-DELETE:            {Host}:{Port}/api/v1/sales/items/{sale_item_id}
-DELETE EXAMPLE:    localhost:8080/api/v1/sales/items/1001
+{Host}:{Port}/api/v1/sales/items/{sale_item_id}
+localhost:8080/api/v1/sales/items/1001
 ```
