@@ -15,15 +15,19 @@ import java.util.List;
 public interface RepositorySale extends CrudRepository<Sale, Integer> {
 
 
+    /**
+     * @param idSeller idSeller.
+     * @return list.
+     */
     @Query(value = "SELECT * FROM sales_items s WHERE s.id_seller = :idSeller", nativeQuery = true)
-    public List<Sale> findSalesBySeller(@Param("idSeller") String idSeller);
+    List<Sale> findSalesBySeller(@Param("idSeller") String idSeller);
 
     /**
      * @param idClient idClient.
      * @return list.
      */
     @Query(value = "SELECT * FROM sales_items s WHERE s.id_client = :idClient", nativeQuery = true)
-    public List<Sale> findSalesByClient(@Param("idClient") String idClient);
+    List<Sale> findSalesByClient(@Param("idClient") String idClient);
 
     /**
      * @param idUser idUser.
@@ -31,6 +35,6 @@ public interface RepositorySale extends CrudRepository<Sale, Integer> {
      */
     @Query(value = "SELECT * FROM sales s WHERE s.id_seller = :idUser OR s.id_client = :idUser",
             nativeQuery = true)
-    public List<Sale> findSalesRelatedWithUser(@Param("idUser") String idUser);
+    List<Sale> findSalesRelatedWithUser(@Param("idUser") String idUser);
 
 }

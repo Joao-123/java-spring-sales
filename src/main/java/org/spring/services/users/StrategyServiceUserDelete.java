@@ -1,6 +1,5 @@
 package org.spring.services.users;
 
-import javassist.bytecode.stackmap.BasicBlock;
 import org.spring.models.Sale;
 import org.spring.repository.RepositorySale;
 import org.spring.repository.RepositoryUser;

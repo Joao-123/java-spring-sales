@@ -63,6 +63,8 @@ public class ControllerItemTest {
         mockItem.setName("Coca cola");
         final Double price = 10.0;
         mockItem.setPrice(price);
+        final Integer stock = 10;
+        mockItem.setStock(stock);
         List<Item> listItems;
         listItems = new ArrayList<>();
         listItems.add(mockItem);
@@ -88,6 +90,7 @@ public class ControllerItemTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10.0"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].stock").value("10"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
                         .value("The get Items successfully"));
     }
@@ -111,6 +114,7 @@ public class ControllerItemTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10.0"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].stock").value("10"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
                         .value("The get Item successfully"));
     }
@@ -144,7 +148,7 @@ public class ControllerItemTest {
     }
 
     /**
-     * Test4.
+     * Test4 post.
      *
      * @throws Exception Exception.
      */
@@ -165,6 +169,7 @@ public class ControllerItemTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10.0"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].stock").value("10"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
                         .value("The Item was created successfully"));
     }

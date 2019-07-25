@@ -1,6 +1,8 @@
 package org.spring.models;
 
 
+import org.spring.support.Magic;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
 
 /**
  * Class.
@@ -24,17 +27,17 @@ public class Sale {
     private Integer id;
 
     @NotNull
-    @Size(min = 7, max = 7)
+    @Size(min = Magic.SEVEN, max = Magic.SEVEN)
     @Column(name = "id_seller")
     private String idSeller;
 
     @NotNull
-    @Size(min = 7, max = 7)
+    @Size(min = Magic.SEVEN, max = Magic.SEVEN)
     @Column(name = "id_client")
     private String idClient;
 
     @NotNull
-    @Size(min = 10, max = 10)
+    @Size(min = Magic.TEN, max = Magic.TEN)
     @Pattern(regexp = "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))")
     @Column(name = "date")
     private String date;

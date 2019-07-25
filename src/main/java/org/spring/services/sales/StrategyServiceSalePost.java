@@ -4,6 +4,7 @@ import org.spring.models.User;
 import org.spring.repository.RepositorySale;
 import org.spring.repository.RepositoryUser;
 import org.spring.responses.ResponseBuilderSale;
+import org.spring.responses.ResponseBuilderUser;
 import org.spring.services.StrategyService;
 import org.spring.responses.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class StrategyServiceSalePost implements StrategyService {
             repositorySale.save(HelperSale.getEntity());
             return ResponseBuilderSale.getResponseOkForPost();
         } else {
-            return ResponseBuilderSale.getResponseNotFound();
+            return ResponseBuilderUser.getResponseNotFound();
         }
     }
 }

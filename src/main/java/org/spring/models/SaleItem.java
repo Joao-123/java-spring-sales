@@ -25,6 +25,10 @@ public class SaleItem {
     private Integer idSale;
 
     @NotNull
+    @Column(name = "id_item")
+    private Integer idItem;
+
+    @NotNull
     @Column(name = "quantity")
     private Integer quantity;
 
@@ -75,5 +79,20 @@ public class SaleItem {
      */
     public void setQuantity(final Integer quantity) {
         this.quantity = quantity;
+    }
+
+    /**
+     * @return idItem.
+     */
+    public Integer getIdItem() {
+        return idItem;
+    }
+
+    /***
+     *
+     * @param idItem idItem.
+     */
+    public void setIdItem(final Integer idItem) {
+        this.idItem = idItem;
     }
 }

@@ -66,7 +66,7 @@ public class ControllerUserTest {
         mockUser.setPassword("pass123");
         mockUser.setName("Isac");
         mockUser.setLastName("Newton");
-        mockUser.setBirthDate("26/06/1996");
+        mockUser.setBirthDate("1996-06-26");
         mockUser.setEmail("Isac.Newton@gmail.com");
         mockUser.setType("admin");
         listUsers.add(mockUser);
@@ -92,7 +92,7 @@ public class ControllerUserTest {
                 + "password\":\"pass123\",\""
                 + "name\":\"Isac\",\""
                 + "lastName\":\"Newton\",\""
-                + "birthDate\":\"26/06/1996\",\""
+                + "birthDate\":\"1996-06-26\",\""
                 + "email\":\"Isac.Newton@gmail.com\",\""
                 + "type\":\"admin\"}],\""
                 + "textMessage\":\"The get Users successfully\"}";
@@ -124,7 +124,7 @@ public class ControllerUserTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Isac"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].lastName").value("Newton"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].birthDate")
-                        .value("26/06/1996"))
+                        .value("1996-06-26"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].email")
                         .value("Isac.Newton@gmail.com"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].type").value("admin"))
@@ -156,7 +156,7 @@ public class ControllerUserTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Isac"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].lastName").value("Newton"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].birthDate")
-                        .value("26/06/1996"))
+                        .value("1996-06-26"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].email")
                         .value("Isac.Newton@gmail.com"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].type").value("admin"))
@@ -189,7 +189,7 @@ public class ControllerUserTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Isac"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].lastName").value("Newton"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].birthDate")
-                        .value("26/06/1996"))
+                        .value("1996-06-26"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].email")
                         .value("Isac.Newton@gmail.com"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].type").value("admin"))

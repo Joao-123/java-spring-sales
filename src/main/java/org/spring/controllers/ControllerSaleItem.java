@@ -7,6 +7,7 @@ import org.spring.services.ServicesSaleItem;
 import org.spring.support.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import javax.validation.Valid;
 /**
  * RestController.
  */
+@Controller
 public class ControllerSaleItem {
 
     @Autowired
@@ -57,7 +59,8 @@ public class ControllerSaleItem {
      * @return Response entity..
      */
     @RequestMapping(method = RequestMethod.PUT, value = Paths.PATH_SALE_ITEMS_WITH_ID)
-    public ResponseEntity<ResponseBody> update(final @RequestBody @Valid SaleItem saleItem, final @PathVariable Integer id) {
+    public ResponseEntity<ResponseBody> update(final @RequestBody @Valid SaleItem saleItem,
+                                               final @PathVariable Integer id) {
         Response response = servicesSaleItem.update(saleItem, id);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }

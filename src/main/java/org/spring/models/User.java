@@ -1,5 +1,7 @@
 package org.spring.models;
 
+import org.spring.support.Magic;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,39 +19,39 @@ public class User {
 
     @Id
     @NotNull
-    @Size(min = 7, max = 7)
+    @Size(min = Magic.SEVEN, max = Magic.SEVEN)
     @Column(name = "id")
     private String id;
 
     @NotNull
-    @Size(min = 3, max = 10)
+    @Size(min = Magic.TRHEE, max = Magic.TEN)
     @Column(name = "password")
     private String password;
 
     @NotNull
-    @Size(min = 3, max = 10)
+    @Size(min = Magic.TRHEE, max = Magic.TEN)
     @Column(name = "name")
     private String name;
 
     @NotNull
-    @Size(min = 3, max = 10)
+    @Size(min = Magic.TRHEE, max = Magic.TEN)
     @Column(name = "last_name")
     private String lastName;
 
     @NotNull
-    @Size(min = 10, max = 10)
+    @Size(min = Magic.TEN, max = Magic.TEN)
     @Pattern(regexp = "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))")
     @Column(name = "birth_date")
     private String birthDate;
 
     @NotNull
-    @Size(min = 7, max = 30)
+    @Size(min = Magic.SEVEN, max = Magic.THIRTY)
     @Pattern(regexp = "^([a-zA-Z0-9_\\-.]+)@([a-zA-Z0-9_\\-.]+)\\.([a-zA-Z]{2,5})$")
     @Column(name = "email")
     private String email;
 
     @NotNull
-    @Size(min = 5, max = 6)
+    @Size(min = Magic.FIVE, max = Magic.SIX)
     @Pattern(regexp = "(admin|seller|client)")
     @Column(name = "type")
     private String type;

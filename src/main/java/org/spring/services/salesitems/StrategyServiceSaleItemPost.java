@@ -1,6 +1,8 @@
 package org.spring.services.salesitems;
 
+import org.spring.models.Item;
 import org.spring.models.Sale;
+import org.spring.repository.RepositoryItem;
 import org.spring.repository.RepositorySale;
 import org.spring.repository.RepositorySaleItem;
 import org.spring.responses.Response;
@@ -22,6 +24,9 @@ public class StrategyServiceSaleItemPost implements StrategyService {
     @Autowired
     private RepositorySale repositorySale;
 
+    @Autowired
+    private RepositoryItem repositoryItem;
+
     /**
      * {@inheritDoc}
      */
@@ -29,7 +34,8 @@ public class StrategyServiceSaleItemPost implements StrategyService {
     public Response getResponse() {
         HelperSale.getEmptyList().add(HelperSale.getEntity());
         Sale sale = repositorySale.findById(HelperSaleItem.getEntity().getIdSale()).orElse(null);
-        if (sale != null) {
+        Item item = repositoryItem.findById(HelperSaleItem.getEntity().getIdItem()).orElse(null);
+        if (sale != null && item != null) {
             repositorySaleItem.save(HelperSaleItem.getEntity());
             return ResponseBuilderSaleItem.getResponseOkForPost();
         } else {
