@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
+
 /**
  * RestController.
  */
@@ -46,7 +48,7 @@ public class ControllerSale {
      * @return Response entity..
      */
     @RequestMapping(method = RequestMethod.POST, value = Paths.PATH_SALES)
-    public ResponseEntity<ResponseBody> add(final @RequestBody Sale sale) {
+    public ResponseEntity<ResponseBody> add(final @RequestBody @Valid Sale sale) {
         Response response = servicesSale.add(sale);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
@@ -57,7 +59,7 @@ public class ControllerSale {
      * @return Response entity..
      */
     @RequestMapping(method = RequestMethod.PUT, value = Paths.PATH_SALES_WITH_ID)
-    public ResponseEntity<ResponseBody> update(final @RequestBody Sale sale, final @PathVariable Integer id) {
+    public ResponseEntity<ResponseBody> update(final @RequestBody @Valid Sale sale, final @PathVariable Integer id) {
         Response response = servicesSale.update(sale, id);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }

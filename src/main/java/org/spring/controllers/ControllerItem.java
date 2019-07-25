@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 /**
  * RestController.
  */
@@ -46,7 +48,7 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.POST, value = Paths.PATH_ITEMS)
-    public ResponseEntity<ResponseBody> add(final @RequestBody Item item) {
+    public ResponseEntity<ResponseBody> add(final @RequestBody @Valid Item item) {
         Response response = serviceItem.add(item);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
@@ -57,7 +59,7 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.PUT, value = Paths.PATH_ITEMS_WITH_ID)
-    public ResponseEntity<ResponseBody> update(final @RequestBody Item item, final @PathVariable Integer id) {
+    public ResponseEntity<ResponseBody> update(final @RequestBody @Valid Item item, final @PathVariable Integer id) {
         Response response = serviceItem.update(item, id);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }

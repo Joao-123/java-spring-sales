@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * Relation Class.
@@ -18,8 +19,12 @@ public class SaleItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @NotNull
     @Column(name = "id_sale")
     private Integer idSale;
+
+    @NotNull
     @Column(name = "quantity")
     private Integer quantity;
 

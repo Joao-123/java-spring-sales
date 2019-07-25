@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * Class.
@@ -19,10 +22,20 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @NotNull
+    @Size(min = 7, max = 7)
     @Column(name = "id_seller")
     private String idSeller;
+
+    @NotNull
+    @Size(min = 7, max = 7)
     @Column(name = "id_client")
     private String idClient;
+
+    @NotNull
+    @Size(min = 10, max = 10)
+    @Pattern(regexp = "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))")
     @Column(name = "date")
     private String date;
 
