@@ -1,8 +1,8 @@
 # java-spring-sales
 
-## USERS
-### GET USERS
+### USERS
 
+GET USERS
 ```
 GET:            {Host}:{Port}/api/v1/users
 GET:            {Host}:{Port}/api/v1/users/{user_id}
@@ -10,8 +10,7 @@ GET EXAMPLE:    localhost:8080/api/v1/users
 GET EXAMPLE:    localhost:8080/api/v1/users/5814525
 ```
 
-### POST USERS
-
+POST USERS
 ```
 POST:            {Host}:{Port}/api/v1/users
 POST EXAMPLE:    localhost:8080/api/v1/users
@@ -27,8 +26,7 @@ BODY:
 }
 ```
 
-### PUT USERS
-
+PUT USERS
 ```
 PUT:            {Host}:{Port}/api/v1/users/{user_id}
 PUT EXAMPLE:    localhost:8080/api/v1/users/5814527
@@ -44,16 +42,14 @@ BODY:
 }
 ```
 
-### DELETE USERS
-
+DELETE USERS
 ```
 DELETE:            {Host}:{Port}/api/v1/users/{user_id}
 DELETE EXAMPLE:    localhost:8080/api/v1/users/5814527
 ```
 
-## ITEMS
-### GET ITEMS
-
+### ITEMS
+GET ITEMS
 ```
 GET:            {Host}:{Port}/api/v1/items
 GET:            {Host}:{Port}/api/v1/items/{item_id}
@@ -61,8 +57,7 @@ GET EXAMPLE:    localhost:8080/api/v1/items
 GET EXAMPLE:    localhost:8080/api/v1/items/1001
 ```
 
-### POST ITEMS
-
+POST ITEMS
 ```
 POST:            {Host}:{Port}/api/v1/items
 POST EXAMPLE:    localhost:8080/api/v1/items
@@ -74,8 +69,7 @@ BODY:
 }
 ```
 
-### PUT ITEMS
-
+PUT ITEMS
 ```
 PUT:            {Host}:{Port}/api/v1/items/{item_id}
 PUT EXAMPLE:    localhost:8080/api/v1/items/1001
@@ -87,15 +81,14 @@ BODY:
 }
 ```
 
-### DELETE ITEMS
-
+DELETE ITEMS
 ```
 DELETE:            {Host}:{Port}/api/v1/items/{item_id}
 DELETE EXAMPLE:    localhost:8080/api/v1/items/1001
 ```
 
-## SALES
-### GET SALES
+### SALES
+GET SALES
 ```
 GET:            {Host}:{Port}/api/v1/sales
 GET:            {Host}:{Port}/api/v1/sales/{sale_id}
@@ -103,8 +96,7 @@ GET EXAMPLE:    localhost:8080/api/v1/sales
 GET EXAMPLE:    localhost:8080/api/v1/sales/1001
 ```
 
-### POST SALES
-
+POST SALES
 ```
 POST:            {Host}:{Port}/api/v1/sales
 POST EXAMPLE:    localhost:8080/api/v1/sales
@@ -116,8 +108,7 @@ BODY:
 }
 ```
 
-### PUT SALES
-
+PUT SALES
 ```
 PUT:            {Host}:{Port}/api/v1/sales/{sale_id}
 PUT EXAMPLE:    localhost:8080/api/v1/sales/1001
@@ -129,9 +120,46 @@ BODY:
 }
 ```
 
-### DELETE SALES
-
+DELETE SALES
 ```
 DELETE:            {Host}:{Port}/api/v1/sales/{sale_id}
 DELETE EXAMPLE:    localhost:8080/api/v1/sales/1001
 ```
+
+### SALES ITEMS RELATION
+GET SALES ITEMS
+```
+GET:            {Host}:{Port}/api/v1/sales/items
+GET:            {Host}:{Port}/api/v1/sales/items/{sale_item_id}
+GET EXAMPLE:    localhost:8080/api/v1/sales/items
+GET EXAMPLE:    localhost:8080/api/v1/sales/items/1001
+```
+
+POST SALES
+```
+POST:            {Host}:{Port}/api/v1/sales/items
+POST EXAMPLE:    localhost:8080/api/v1/sales/items
+BODY:
+{
+    "idSale": 1001,
+    "idItem": 1005,
+    "quantity": 1
+}
+```
+
+PUT SALES
+```
+PUT:            {Host}:{Port}/api/v1/sales/items/{sale_item_id}
+PUT EXAMPLE:    localhost:8080/api/v1/sales/items/1001
+BODY:
+{
+    "idSale": 1010,
+    "idItem": 1020,
+    "quantity": 5
+}
+```
+
+DELETE SALES
+```
+DELETE:            {Host}:{Port}/api/v1/sales/items/{sale_item_id}
+DELETE EXAMPLE:    localhost:8080/api/v1/sales/items/1001
