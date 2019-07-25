@@ -110,7 +110,7 @@ DELETE SALES
 localhost:8080/api/v1/sales/1001
 ```
 
-### SALES ITEMS RELATION
+### SALES ITEMS
 
 ```
 GET SALES_ITEMS
