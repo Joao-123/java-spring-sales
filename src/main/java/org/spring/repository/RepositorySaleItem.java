@@ -18,21 +18,21 @@ public interface RepositorySaleItem extends CrudRepository<SaleItem, Integer> {
      * @param idSale idSale.
      * @return list.
      */
-    public  @Query(value = "SELECT * FROM sales_items s WHERE s.id_sale = :idSale", nativeQuery = true)
-    List<SaleItem> findSaleRelated(@Param("idSale") Integer idSale);
+    @Query(value = "SELECT * FROM sales_items s WHERE s.id_sale = :idSale", nativeQuery = true)
+    public List<SaleItem> findSaleRelated(@Param("idSale") Integer idSale);
 
     /**
      * @param idItem idItem.
      * @return list.
      */
-    public @Query(value = "SELECT * FROM sales_items s WHERE s.id_item = :idItem", nativeQuery = true)
-    List<SaleItem> findItemRelated(@Param("idItem") Integer idItem);
+    @Query(value = "SELECT * FROM sales_items s WHERE s.id_item = :idItem", nativeQuery = true)
+    public List<SaleItem> findItemRelated(@Param("idItem") Integer idItem);
 
     /**
      * @param idSale idSale.
      * @return list.
      */
-    public @Query(value = "SELECT * FROM sales_items s WHERE s.id_sale = :idSale OR s.id_item = :idItem",
+    @Query(value = "SELECT * FROM sales_items s WHERE s.id_sale = :idSale OR s.id_item = :idItem",
             nativeQuery = true)
-    List<SaleItem> findSaleItemRelated(@Param("idSale") Integer idSale, @Param("idItem") Integer idItem);
+    public List<SaleItem> findSaleItemRelated(@Param("idSale") Integer idSale, @Param("idItem") Integer idItem);
 }

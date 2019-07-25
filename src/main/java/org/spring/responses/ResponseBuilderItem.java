@@ -64,7 +64,7 @@ public final class ResponseBuilderItem {
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
                 .setTextMessage(ResponseMessage.deletedSuccessfully(HelperItem.getEntityName()))
-                .setData(null);
+                .setData(HelperItem.getEmptyList());
         return response;
     }
 
@@ -77,7 +77,7 @@ public final class ResponseBuilderItem {
                 .setHttpStatus(HttpStatus.NOT_FOUND)
                 .getBody()
                 .setTextMessage(ResponseMessage.entityNotFound(HelperItem.getEntityName()))
-                .setData(null);
+                .setData(HelperItem.getEmptyList());
         return response;
     }
 
@@ -90,7 +90,7 @@ public final class ResponseBuilderItem {
                 .setHttpStatus(HttpStatus.CONFLICT)
                 .getBody()
                 .setTextMessage(ResponseMessage.entityHasRelation(HelperItem.getEntityName()))
-                .setData(HelperItem.getList());
+                .setData(HelperItem.getEmptyList());
         return response;
     }
 }

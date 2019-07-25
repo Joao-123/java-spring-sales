@@ -65,7 +65,7 @@ public final class ResponseBuilderUser {
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
                 .setTextMessage(ResponseMessage.deletedSuccessfully(HelperUser.getEntityName()))
-                .setData(null);
+                .setData(HelperUser.getEmptyList());
         return response;
     }
 
@@ -78,7 +78,7 @@ public final class ResponseBuilderUser {
                 .setHttpStatus(HttpStatus.CONFLICT)
                 .getBody()
                 .setTextMessage(ResponseMessage.entityAlreadyExist(HelperUser.getEntityName()))
-                .setData(HelperUser.getList());
+                .setData(HelperUser.getEmptyList());
         return response;
     }
 
@@ -91,7 +91,7 @@ public final class ResponseBuilderUser {
                 .setHttpStatus(HttpStatus.NOT_FOUND)
                 .getBody()
                 .setTextMessage(ResponseMessage.entityNotFound(HelperUser.getEntityName()))
-                .setData(null);
+                .setData(HelperUser.getEmptyList());
         return response;
     }
 
@@ -104,7 +104,7 @@ public final class ResponseBuilderUser {
                 .setHttpStatus(HttpStatus.CONFLICT)
                 .getBody()
                 .setTextMessage(ResponseMessage.entityHasRelation(HelperUser.getEntityName()))
-                .setData(HelperUser.getList());
+                .setData(HelperUser.getEmptyList());
         return response;
     }
 }

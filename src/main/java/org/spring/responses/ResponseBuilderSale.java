@@ -64,7 +64,7 @@ public final class ResponseBuilderSale {
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
                 .setTextMessage(ResponseMessage.deletedSuccessfully(HelperSale.getEntityName()))
-                .setData(null);
+                .setData(HelperSale.getEmptyList());
         return response;
     }
 
@@ -77,7 +77,7 @@ public final class ResponseBuilderSale {
                 .setHttpStatus(HttpStatus.NOT_FOUND)
                 .getBody()
                 .setTextMessage(ResponseMessage.entityNotFound(HelperSale.getEntityName()))
-                .setData(null);
+                .setData(HelperSale.getEmptyList());
         return response;
     }
 
@@ -90,7 +90,7 @@ public final class ResponseBuilderSale {
                 .setHttpStatus(HttpStatus.CONFLICT)
                 .getBody()
                 .setTextMessage(ResponseMessage.entityHasRelation(HelperSale.getEntityName()))
-                .setData(HelperSale.getList());
+                .setData(HelperSale.getEmptyList());
         return response;
     }
 }

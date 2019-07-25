@@ -15,23 +15,22 @@ import java.util.List;
 public interface RepositorySale extends CrudRepository<Sale, Integer> {
 
 
-
-   // public @Query("SELECT s FROM sales s WHERE s.id_seller = :idSeller")
-    //List<Sale> findSalesBySeller(@Param("idSeller") String idSeller);
+    @Query(value = "SELECT * FROM sales_items s WHERE s.id_seller = :idSeller", nativeQuery = true)
+    public List<Sale> findSalesBySeller(@Param("idSeller") String idSeller);
 
     /**
      * @param idClient idClient.
      * @return list.
      */
-   // public @Query("SELECT s FROM sales s WHERE s.id_client = :idClient")
-   // List<Sale> findSalesByClient(@Param("idClient") String idClient);
+    @Query(value = "SELECT * FROM sales_items s WHERE s.id_client = :idClient", nativeQuery = true)
+    public List<Sale> findSalesByClient(@Param("idClient") String idClient);
 
     /**
      * @param idUser idUser.
      * @return list.
      */
-    public @Query(value = "SELECT * FROM sales s WHERE s.id_seller = :idUser OR s.id_client = :idUser",
+    @Query(value = "SELECT * FROM sales s WHERE s.id_seller = :idUser OR s.id_client = :idUser",
             nativeQuery = true)
-    List<Sale> findSalesRelatedWithUser(@Param("idUser") String idUser);
+    public List<Sale> findSalesRelatedWithUser(@Param("idUser") String idUser);
 
 }
