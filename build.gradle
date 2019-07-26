@@ -1,24 +1,15 @@
-// Apply plug-ins in order to add support for Java
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-apply plugin: 'checkstyle'
-apply plugin: 'pmd'
-apply plugin: 'findbugs'
-apply plugin: 'jacoco'
-buildscript {
-    ext {
-        springBootVersion = '2.0.3.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+// Apply plug-ins
+plugins {
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+    id 'checkstyle'
+    id 'pmd'
+    id 'findbugs'
+    id 'jacoco'
 }
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -27,9 +18,8 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile('com.jayway.jsonpath:json-path')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
@@ -37,6 +27,7 @@ dependencies {
 checkstyle {
     toolVersion = '8.11'
 }
+checkstyleMain.exclude '**/org/spring/Application.java'
 
 // FindBugs configuration
 findbugs {

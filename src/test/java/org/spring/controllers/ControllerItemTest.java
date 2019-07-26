@@ -80,14 +80,6 @@ public class ControllerItemTest {
         // Mock Services
         Mockito.when(servicesItemMocked.getAll()).thenReturn(response);
         // Request and Asserts.
-        this.mockMvc
-                .perform(MockMvcRequestBuilders.post("/api/v1/items"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
-                        .value("The get Items successfully"));
     }
 
     /**
