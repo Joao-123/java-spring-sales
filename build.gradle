@@ -1,15 +1,15 @@
 // Apply plug-ins
 plugins {
     id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'io.spring.dependency-management'  version '1.0.8.RELEASE'
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+    id 'checkstyle'
+    id 'pmd'
+    id 'findbugs'
+    id 'jacoco'
 }
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-apply plugin: 'checkstyle'
-apply plugin: 'pmd'
-apply plugin: 'findbugs'
-apply plugin: 'jacoco'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
