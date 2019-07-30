@@ -2,13 +2,13 @@ package org.spring.services;
 
 
 import org.spring.models.Item;
+import org.spring.responses.Response;
 import org.spring.services.items.HelperItem;
 import org.spring.services.items.ItemDelete;
 import org.spring.services.items.ItemGet;
 import org.spring.services.items.ItemGetById;
 import org.spring.services.items.ItemPost;
 import org.spring.services.items.ItemPut;
-import org.spring.support.Response;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,20 +18,20 @@ import org.springframework.stereotype.Service;
 public class ServicesItem {
 
 
-    private StrategyManager strategyManager;
+    private ServicesStrategyManager servicesStrategyManager;
 
     /**
      * Constructor.
      */
     ServicesItem() {
-        strategyManager = new StrategyManager();
+        servicesStrategyManager = new ServicesStrategyManager();
     }
 
     /**
      * @return Items.
      */
     public Response getAll() {
-        return strategyManager.getResponse(new ItemGet());
+        return servicesStrategyManager.getResponse(new ItemGet());
     }
 
     /**
@@ -40,7 +40,7 @@ public class ServicesItem {
      */
     public Response getById(final String id) {
         HelperItem.setId(id);
-        return strategyManager.getResponse(new ItemGetById());
+        return servicesStrategyManager.getResponse(new ItemGetById());
     }
 
     /**
@@ -48,8 +48,8 @@ public class ServicesItem {
      * @return Message.
      */
     public Response add(final Item item) {
-        HelperItem.setModelProject(item);
-        return strategyManager.getResponse(new ItemPost());
+        HelperItem.setEntity(item);
+        return servicesStrategyManager.getResponse(new ItemPost());
     }
 
     /**
@@ -59,8 +59,8 @@ public class ServicesItem {
      */
     public Response update(final Item item, final String id) {
         HelperItem.setId(id);
-        HelperItem.setModelProject(item);
-        return strategyManager.getResponse(new ItemPut());
+        HelperItem.setEntity(item);
+        return servicesStrategyManager.getResponse(new ItemPut());
     }
 
     /**
@@ -69,6 +69,6 @@ public class ServicesItem {
      */
     public Response delete(final String id) {
         HelperItem.setId(id);
-        return strategyManager.getResponse(new ItemDelete());
+        return servicesStrategyManager.getResponse(new ItemDelete());
     }
 }

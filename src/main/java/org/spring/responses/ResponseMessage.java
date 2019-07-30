@@ -1,18 +1,18 @@
-package org.spring.support;
+package org.spring.responses;
 
 /**
  * Class.
  */
-public final class MessageManager {
+public final class ResponseMessage {
 
     /**
      * Constructor.
      */
-    private MessageManager() {
+    private ResponseMessage() {
     }
 
     /**
-     * @param entity entity.
+     * @param entity getEntity.
      * @return Message.
      */
     public static String getSuccessfully(final String entity) {
@@ -20,7 +20,7 @@ public final class MessageManager {
     }
 
     /**
-     * @param entity entity.
+     * @param entity getEntity.
      * @return Message.
      */
     public static String getNotContent(final String entity) {
@@ -28,7 +28,7 @@ public final class MessageManager {
     }
 
     /**
-     * @param entity entity.
+     * @param entity getEntity.
      * @return Message.
      */
     public static String createdSuccessfully(final String entity) {
@@ -36,7 +36,7 @@ public final class MessageManager {
     }
 
     /**
-     * @param entity entity.
+     * @param entity getEntity.
      * @return Message.
      */
     public static String updatedSuccessfully(final String entity) {
@@ -44,7 +44,7 @@ public final class MessageManager {
     }
 
     /**
-     * @param entity entity.
+     * @param entity getEntity.
      * @return Message.
      */
     public static String deletedSuccessfully(final String entity) {
@@ -52,7 +52,7 @@ public final class MessageManager {
     }
 
     /**
-     * @param entity entity.
+     * @param entity getEntity.
      * @return Message.
      */
     public static String entityDoesNotExist(final String entity) {

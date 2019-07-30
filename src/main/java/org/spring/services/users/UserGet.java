@@ -1,16 +1,16 @@
 package org.spring.services.users;
 
 import org.spring.models.User;
-import org.spring.services.StrategyResponse;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseManager;
+import org.spring.services.ServicesStrategy;
+import org.spring.responses.ResponseMessage;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseManager;
 import org.springframework.http.HttpStatus;
 
 /**
  * Class.
  */
-public class UserGet implements StrategyResponse {
+public class UserGet implements ServicesStrategy {
 
     /**
      * Constructor.
@@ -27,7 +27,7 @@ public class UserGet implements StrategyResponse {
         response
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
-                .setTextMessage(MessageManager.getSuccessfully(HelperUser.getEntity()))
+                .setTextMessage(ResponseMessage.getSuccessfully(HelperUser.getEntity()))
                 .setData(HelperUserList.getList());
         return response;
     }

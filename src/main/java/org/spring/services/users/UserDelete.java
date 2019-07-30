@@ -1,16 +1,16 @@
 package org.spring.services.users;
 
 import org.spring.models.User;
-import org.spring.services.StrategyResponse;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseManager;
+import org.spring.services.ServicesStrategy;
+import org.spring.responses.ResponseMessage;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseManager;
 import org.springframework.http.HttpStatus;
 
 /**
  * Class.
  */
-public class UserDelete implements StrategyResponse {
+public class UserDelete implements ServicesStrategy {
 
     /**
      * {@inheritDoc}
@@ -21,14 +21,14 @@ public class UserDelete implements StrategyResponse {
         response
                 .setHttpStatus(HttpStatus.NOT_FOUND)
                 .getBody()
-                .setTextMessage(MessageManager.getNotContent(HelperUser.getEntity()))
+                .setTextMessage(ResponseMessage.getNotContent(HelperUser.getEntity()))
                 .setData(null);
         for (int i = 0; i < HelperUserList.getList().size(); i++) {
             if (HelperUserList.getList().get(i).getId().equals(HelperUser.getId())) {
                 response
                         .setHttpStatus(HttpStatus.OK)
                         .getBody()
-                        .setTextMessage(MessageManager.deletedSuccessfully(HelperUser.getEntity()));
+                        .setTextMessage(ResponseMessage.deletedSuccessfully(HelperUser.getEntity()));
                 HelperUserList.getList().remove(i);
             }
         }

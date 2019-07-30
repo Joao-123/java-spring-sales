@@ -1,14 +1,31 @@
 package org.spring.models;
 
+import org.spring.support.Magic;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
  * Class.
  */
 public class Sale {
+
     private String id;
-    private String userId;
+
+    @NotNull
+    @Size(min = Magic.SEVEN, max = Magic.SEVEN)
+    private String idSeller;
+
+    @NotNull
+    @Size(min = Magic.SEVEN, max = Magic.SEVEN)
+    private String idClient;
     private List<String> listItemsIds;
+
+    @NotNull
+    @Size(min = Magic.TEN, max = Magic.TEN)
+    @Pattern(regexp = "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))")
     private String date;
 
     /**
@@ -34,15 +51,15 @@ public class Sale {
     /**
      * @return user id.
      */
-    public String getUserId() {
-        return userId;
+    public String getIdSeller() {
+        return idSeller;
     }
 
     /**
-     * @param userId user id.
+     * @param idSeller user id.
      */
-    public void setUserId(final String userId) {
-        this.userId = userId;
+    public void setIdSeller(final String idSeller) {
+        this.idSeller = idSeller;
     }
 
     /**
@@ -71,5 +88,19 @@ public class Sale {
      */
     public void setListItemsIds(final List<String> listItemsIds) {
         this.listItemsIds = listItemsIds;
+    }
+
+    /**
+     * @return idClient.
+     */
+    public String getIdClient() {
+        return idClient;
+    }
+
+    /**
+     * @param idClient idClient.
+     */
+    public void setIdClient(String idClient) {
+        this.idClient = idClient;
     }
 }

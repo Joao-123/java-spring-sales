@@ -1,17 +1,17 @@
 package org.spring.services.items;
 
 import org.spring.models.Item;
-import org.spring.services.StrategyResponse;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseManager;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseManager;
+import org.spring.responses.ResponseMessage;
+import org.spring.services.ServicesStrategy;
 import org.springframework.http.HttpStatus;
 
 
 /**
  * Projects Get All .
  */
-public class ItemGet implements StrategyResponse {
+public class ItemGet implements ServicesStrategy {
 
     /**
      * Constructor.
@@ -28,7 +28,7 @@ public class ItemGet implements StrategyResponse {
         response
                 .setHttpStatus(HttpStatus.OK)
                 .getBody()
-                .setTextMessage(MessageManager.getSuccessfully(HelperItemList.getEntity()))
+                .setTextMessage(ResponseMessage.getSuccessfully(HelperItemList.getEntity()))
                 .setData(HelperItemList.getModelProjectList());
         return response;
     }

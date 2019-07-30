@@ -1,10 +1,10 @@
 package org.spring.controllers;
 
 import org.spring.models.Item;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseBody;
 import org.spring.services.ServicesItem;
 import org.spring.support.Paths;
-import org.spring.support.Response;
-import org.spring.support.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package org.spring.support;
+package org.spring.responses;
 
 import org.spring.models.Item;
 import org.spring.models.Sale;

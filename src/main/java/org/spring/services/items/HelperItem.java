@@ -7,8 +7,9 @@ import org.spring.models.Item;
  */
 public final class HelperItem {
 
+    private static final String ENTITY_NAME = "item";
     private String id;
-    private Item item;
+    private Item entity;
     private static HelperItem helperItem;
 
     /**
@@ -38,14 +39,21 @@ public final class HelperItem {
     /**
      * @return Item.
      */
-    public static Item getModelProject() {
-        return getSingleton().item;
+    public static Item getEntity() {
+        return getSingleton().entity;
     }
 
     /**
      * @param item item.
      */
-    public static void setModelProject(final Item item) {
-        getSingleton().item = item;
+    public static void setEntity(final Item item) {
+        getSingleton().entity = item;
+    }
+
+    /**
+     * @return Entity Name.
+     */
+    public static String getEntityName() {
+        return ENTITY_NAME;
     }
 }

@@ -1,10 +1,10 @@
 package org.spring.services.items;
 
 import org.spring.models.Item;
-import org.spring.services.StrategyResponse;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseManager;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseManager;
+import org.spring.responses.ResponseMessage;
+import org.spring.services.ServicesStrategy;
 import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Project Get by Id.
  */
-public class ItemGetById implements StrategyResponse {
+public class ItemGetById implements ServicesStrategy {
 
     /**
      * {@inheritDoc}
@@ -24,7 +24,7 @@ public class ItemGetById implements StrategyResponse {
         response
                 .setHttpStatus(HttpStatus.NO_CONTENT)
                 .getBody()
-                .setTextMessage(MessageManager.getNotContent(HelperItemList.getEntity()))
+                .setTextMessage(ResponseMessage.getNotContent(HelperItemList.getEntity()))
                 .setData(null);
         for (Item item : HelperItemList.getModelProjectList()) {
             if (item.getId().equals(HelperItem.getId())) {
@@ -33,7 +33,7 @@ public class ItemGetById implements StrategyResponse {
                 response
                         .setHttpStatus(HttpStatus.OK)
                         .getBody()
-                        .setTextMessage(MessageManager.getSuccessfully(HelperItemList.getEntity()))
+                        .setTextMessage(ResponseMessage.getSuccessfully(HelperItemList.getEntity()))
                         .setData(newItemList);
             }
         }

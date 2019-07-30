@@ -1,16 +1,16 @@
 package org.spring.services.items;
 
 import org.spring.models.Item;
-import org.spring.services.StrategyResponse;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseManager;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseManager;
+import org.spring.responses.ResponseMessage;
+import org.spring.services.ServicesStrategy;
 import org.springframework.http.HttpStatus;
 
 /**
  * Project Post.
  */
-public class ItemPost implements StrategyResponse {
+public class ItemPost implements ServicesStrategy {
 
     /**
      * {@inheritDoc}
@@ -21,9 +21,9 @@ public class ItemPost implements StrategyResponse {
         response
                 .setHttpStatus(HttpStatus.CREATED)
                 .getBody()
-                .setTextMessage(MessageManager.createdSuccessfully(HelperItemList.getEntity()))
+                .setTextMessage(ResponseMessage.createdSuccessfully(HelperItemList.getEntity()))
                 .setData(null);
-        HelperItemList.getModelProjectList().add(HelperItem.getModelProject());
+        HelperItemList.getModelProjectList().add(HelperItem.getEntity());
         return response;
     }
 }

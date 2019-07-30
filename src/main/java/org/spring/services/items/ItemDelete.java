@@ -1,16 +1,16 @@
 package org.spring.services.items;
 
 import org.spring.models.Item;
-import org.spring.services.StrategyResponse;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseManager;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseManager;
+import org.spring.responses.ResponseMessage;
+import org.spring.services.ServicesStrategy;
 import org.springframework.http.HttpStatus;
 
 /**
  * Project Delete.
  */
-public class ItemDelete implements StrategyResponse {
+public class ItemDelete implements ServicesStrategy {
 
     /**
      * {@inheritDoc}
@@ -21,14 +21,14 @@ public class ItemDelete implements StrategyResponse {
         response
                 .setHttpStatus(HttpStatus.NO_CONTENT)
                 .getBody()
-                .setTextMessage(MessageManager.getNotContent(HelperItemList.getEntity()))
+                .setTextMessage(ResponseMessage.getNotContent(HelperItemList.getEntity()))
                 .setData(null);
         for (int i = 0; i < HelperItemList.getModelProjectList().size(); i++) {
             if (HelperItemList.getModelProjectList().get(i).getId().equals(HelperItem.getId())) {
                 response
                         .setHttpStatus(HttpStatus.OK)
                         .getBody()
-                        .setTextMessage(MessageManager.deletedSuccessfully(HelperItemList.getEntity()));
+                        .setTextMessage(ResponseMessage.deletedSuccessfully(HelperItemList.getEntity()));
                 HelperItemList.getModelProjectList().remove(i);
             }
         }

@@ -1,10 +1,10 @@
 package org.spring.services.users;
 
 import org.spring.models.User;
-import org.spring.services.StrategyResponse;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseManager;
+import org.spring.services.ServicesStrategy;
+import org.spring.responses.ResponseMessage;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseManager;
 import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Class.
  */
-public class UserPut implements StrategyResponse {
+public class UserPut implements ServicesStrategy {
 
     /**
      * {@inheritDoc}
@@ -24,7 +24,7 @@ public class UserPut implements StrategyResponse {
         response
                 .setHttpStatus(HttpStatus.NOT_FOUND)
                 .getBody()
-                .setTextMessage(MessageManager.getNotContent(HelperUser.getEntity()))
+                .setTextMessage(ResponseMessage.getNotContent(HelperUser.getEntity()))
                 .setData(null);
         for (User currentUser : HelperUserList.getList()) {
             if (currentUser.getId().equals(HelperUser.getId())) {
@@ -36,7 +36,7 @@ public class UserPut implements StrategyResponse {
                 response
                         .setHttpStatus(HttpStatus.OK)
                         .getBody()
-                        .setTextMessage(MessageManager.updatedSuccessfully(HelperUser.getEntity()))
+                        .setTextMessage(ResponseMessage.updatedSuccessfully(HelperUser.getEntity()))
                         .setData(newModelProjectList);
             }
         }
