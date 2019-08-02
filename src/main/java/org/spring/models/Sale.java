@@ -27,6 +27,7 @@ public class Sale {
     @Pattern(regexp = "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))")
     private String date;
 
+    @NotNull
     private List<Integer> listItemsIds;
 
     /**

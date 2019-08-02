@@ -16,15 +16,15 @@ public class User {
     private String id;
 
     @NotNull
-    @Size(min = Magic.TRHEE, max = Magic.TEN)
+    @Size(min = Magic.THREE, max = Magic.TEN)
     private String password;
 
     @NotNull
-    @Size(min = Magic.TRHEE, max = Magic.TEN)
+    @Size(min = Magic.THREE, max = Magic.TEN)
     private String name;
 
     @NotNull
-    @Size(min = Magic.TRHEE, max = Magic.TEN)
+    @Size(min = Magic.THREE, max = Magic.TEN)
     private String lastName;
 
     @NotNull
