@@ -36,7 +36,7 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_ITEMS_WITH_ID)
-    public ResponseEntity<ResponseBody> getById(final @PathVariable String id) {
+    public ResponseEntity<ResponseBody> getById(final @PathVariable Integer id) {
         Response response = serviceItem.getById(id);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
@@ -57,7 +57,7 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.PUT, value = Paths.PATH_ITEMS_WITH_ID)
-    public ResponseEntity<ResponseBody> update(final @RequestBody Item item, final @PathVariable String id) {
+    public ResponseEntity<ResponseBody> update(final @RequestBody Item item, final @PathVariable Integer id) {
         Response response = serviceItem.update(item, id);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
     }
@@ -67,7 +67,7 @@ public class ControllerItem {
      * @return ResponseSingle.
      */
     @RequestMapping(method = RequestMethod.DELETE, value = Paths.PATH_ITEMS_WITH_ID)
-    public ResponseEntity<ResponseBody> delete(final @PathVariable String id) {
+    public ResponseEntity<ResponseBody> delete(final @PathVariable Integer id) {
         Response response = serviceItem.delete(id);
         return ResponseEntity.status(response.getHttpStatus()).body(response.getBody());
 

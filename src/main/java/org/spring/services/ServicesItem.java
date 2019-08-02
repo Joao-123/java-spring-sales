@@ -3,12 +3,12 @@ package org.spring.services;
 
 import org.spring.models.Item;
 import org.spring.responses.Response;
-import org.spring.services.items.HelperItem;
-import org.spring.services.items.ItemDelete;
-import org.spring.services.items.ItemGet;
-import org.spring.services.items.ItemGetById;
-import org.spring.services.items.ItemPost;
-import org.spring.services.items.ItemPut;
+import org.spring.helpers.HelperItem;
+import org.spring.services.items.StrategyServiceItemDelete;
+import org.spring.services.items.StrategyServiceItemGet;
+import org.spring.services.items.StrategyServiceItemGetById;
+import org.spring.services.items.StrategyServiceItemPost;
+import org.spring.services.items.StrategyServiceItemPut;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,27 +20,42 @@ public class ServicesItem {
 
     private ServicesStrategyManager servicesStrategyManager;
 
+    private StrategyServiceItemGet get;
+
+    private StrategyServiceItemGetById getById;
+
+    private StrategyServiceItemPost post;
+
+    private StrategyServiceItemPut put;
+
+    private StrategyServiceItemDelete delete;
+
     /**
      * Constructor.
      */
     ServicesItem() {
         servicesStrategyManager = new ServicesStrategyManager();
+        get = new StrategyServiceItemGet();
+        getById = new StrategyServiceItemGetById();
+        post = new StrategyServiceItemPost();
+        put = new StrategyServiceItemPut();
+        delete = new StrategyServiceItemDelete();
     }
 
     /**
      * @return Items.
      */
     public Response getAll() {
-        return servicesStrategyManager.getResponse(new ItemGet());
+        return servicesStrategyManager.getResponse(get);
     }
 
     /**
      * @param id Item id.
      * @return Item.
      */
-    public Response getById(final String id) {
+    public Response getById(final Integer id) {
         HelperItem.setId(id);
-        return servicesStrategyManager.getResponse(new ItemGetById());
+        return servicesStrategyManager.getResponse(getById);
     }
 
     /**
@@ -49,7 +64,7 @@ public class ServicesItem {
      */
     public Response add(final Item item) {
         HelperItem.setEntity(item);
-        return servicesStrategyManager.getResponse(new ItemPost());
+        return servicesStrategyManager.getResponse(post);
     }
 
     /**
@@ -57,18 +72,18 @@ public class ServicesItem {
      * @param id   Item id.
      * @return Message.
      */
-    public Response update(final Item item, final String id) {
+    public Response update(final Item item, final Integer id) {
         HelperItem.setId(id);
         HelperItem.setEntity(item);
-        return servicesStrategyManager.getResponse(new ItemPut());
+        return servicesStrategyManager.getResponse(put);
     }
 
     /**
      * @param id Item id.
      * @return Message.
      */
-    public Response delete(final String id) {
+    public Response delete(final Integer id) {
         HelperItem.setId(id);
-        return servicesStrategyManager.getResponse(new ItemDelete());
+        return servicesStrategyManager.getResponse(delete);
     }
 }

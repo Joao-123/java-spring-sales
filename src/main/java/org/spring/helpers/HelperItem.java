@@ -1,6 +1,9 @@
-package org.spring.services.items;
+package org.spring.helpers;
 
 import org.spring.models.Item;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Helper Project Class.
@@ -8,9 +11,19 @@ import org.spring.models.Item;
 public final class HelperItem {
 
     private static final String ENTITY_NAME = "item";
-    private String id;
-    private Item entity;
     private static HelperItem helperItem;
+    private Integer id;
+    private Item entity;
+    private List<Item> itemList;
+    private List<Item> itemListHelper;
+
+    /**
+     * Constructor.
+     */
+    HelperItem() {
+        itemList = new ArrayList<>();
+        itemListHelper = new ArrayList<>();
+    }
 
     /**
      * @return Singleton.
@@ -25,14 +38,14 @@ public final class HelperItem {
     /**
      * @return id.
      */
-    public static String getId() {
+    public static Integer getId() {
         return getSingleton().id;
     }
 
     /**
      * @param id id.
      */
-    public static void setId(final String id) {
+    public static void setId(final Integer id) {
         getSingleton().id = id;
     }
 
@@ -55,5 +68,27 @@ public final class HelperItem {
      */
     public static String getEntityName() {
         return ENTITY_NAME;
+    }
+
+    /**
+     * @return itemList.
+     */
+    public static List<Item> getList() {
+        return getSingleton().itemList;
+    }
+
+    /**
+     * @return userList.
+     */
+    public static List<Item> getListHelper() {
+        return getSingleton().itemListHelper;
+    }
+
+    /**
+     * @return userList.
+     */
+    public static List<Item> getEmptyListHelper() {
+        getSingleton().itemListHelper.clear();
+        return getSingleton().itemListHelper;
     }
 }

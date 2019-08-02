@@ -12,7 +12,7 @@ public final class ResponseMessage {
     }
 
     /**
-     * @param entity getEntity.
+     * @param entity entity.
      * @return Message.
      */
     public static String getSuccessfully(final String entity) {
@@ -20,15 +20,7 @@ public final class ResponseMessage {
     }
 
     /**
-     * @param entity getEntity.
-     * @return Message.
-     */
-    public static String getNotContent(final String entity) {
-        return String.format("The %s does not exist", entity);
-    }
-
-    /**
-     * @param entity getEntity.
+     * @param entity entity.
      * @return Message.
      */
     public static String createdSuccessfully(final String entity) {
@@ -36,7 +28,7 @@ public final class ResponseMessage {
     }
 
     /**
-     * @param entity getEntity.
+     * @param entity entity.
      * @return Message.
      */
     public static String updatedSuccessfully(final String entity) {
@@ -44,7 +36,7 @@ public final class ResponseMessage {
     }
 
     /**
-     * @param entity getEntity.
+     * @param entity entity.
      * @return Message.
      */
     public static String deletedSuccessfully(final String entity) {
@@ -52,10 +44,26 @@ public final class ResponseMessage {
     }
 
     /**
-     * @param entity getEntity.
+     * @param entity entity.
      * @return Message.
      */
-    public static String entityDoesNotExist(final String entity) {
-        return String.format("The %s doesn't exist", entity);
+    public static String entityAlreadyExist(final String entity) {
+        return String.format("The %s already exist", entity);
+    }
+
+    /**
+     * @param entity entity.
+     * @return Message.
+     */
+    public static String entityNotFound(final String entity) {
+        return String.format("The %s does not exist", entity);
+    }
+
+    /**
+     * @param entity entity.
+     * @return Message.
+     */
+    public static String entityHasRelation(final String entity) {
+        return String.format("The %s has relation, request cannot be applied", entity);
     }
 }

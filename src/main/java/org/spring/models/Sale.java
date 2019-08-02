@@ -21,12 +21,13 @@ public class Sale {
     @NotNull
     @Size(min = Magic.SEVEN, max = Magic.SEVEN)
     private String idClient;
-    private List<String> listItemsIds;
 
     @NotNull
     @Size(min = Magic.TEN, max = Magic.TEN)
     @Pattern(regexp = "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))")
     private String date;
+
+    private List<Integer> listItemsIds;
 
     /**
      * Constructor.
@@ -79,14 +80,14 @@ public class Sale {
     /**
      * @return list.
      */
-    public List<String> getListItemsIds() {
+    public List<Integer> getListItemsIds() {
         return listItemsIds;
     }
 
     /**
      * @param listItemsIds list.
      */
-    public void setListItemsIds(final List<String> listItemsIds) {
+    public void setListItemsIds(final List<Integer> listItemsIds) {
         this.listItemsIds = listItemsIds;
     }
 

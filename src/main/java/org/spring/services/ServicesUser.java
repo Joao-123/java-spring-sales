@@ -1,13 +1,13 @@
 package org.spring.services;
 
 import org.spring.models.User;
-import org.spring.services.users.HelperUser;
-import org.spring.services.users.UserDelete;
-import org.spring.services.users.UserGet;
-import org.spring.services.users.UserGetById;
-import org.spring.services.users.UserPost;
-import org.spring.services.users.UserPut;
-import org.spring.support.Response;
+import org.spring.helpers.HelperUser;
+import org.spring.responses.Response;
+import org.spring.services.users.StrategyServiceUserDelete;
+import org.spring.services.users.StrategyServiceUserGet;
+import org.spring.services.users.StrategyServiceUserGetById;
+import org.spring.services.users.StrategyServiceUserPost;
+import org.spring.services.users.StrategyServiceUserPut;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,20 +16,30 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServicesUser {
 
-    private StrategyManager strategyManager;
+    private ServicesStrategyManager strategyManager;
+
+    private StrategyServiceUserGet get;
+
+    private StrategyServiceUserGetById getById;
+
+    private StrategyServiceUserPost post;
+
+    private StrategyServiceUserPut put;
+
+    private StrategyServiceUserDelete delete;
 
     /**
      * Constructor.
      */
     ServicesUser() {
-        strategyManager = new StrategyManager();
+        strategyManager = new ServicesStrategyManager();
     }
 
     /**
      * @return modelProjectList.
      */
     public Response getAll() {
-        return strategyManager.getResponse(new UserGet());
+        return strategyManager.getResponse(get);
     }
 
     /**
@@ -38,7 +48,7 @@ public class ServicesUser {
      */
     public Response getById(final String id) {
         HelperUser.setId(id);
-        return strategyManager.getResponse(new UserGetById());
+        return strategyManager.getResponse(getById);
     }
 
     /**
@@ -46,8 +56,8 @@ public class ServicesUser {
      * @return Message.
      */
     public Response add(final User user) {
-        HelperUser.setUser(user);
-        return strategyManager.getResponse(new UserPost());
+        HelperUser.setEntity(user);
+        return strategyManager.getResponse(post);
     }
 
     /**
@@ -57,8 +67,8 @@ public class ServicesUser {
      */
     public Response update(final User user, final String id) {
         HelperUser.setId(id);
-        HelperUser.setUser(user);
-        return strategyManager.getResponse(new UserPut());
+        HelperUser.setEntity(user);
+        return strategyManager.getResponse(put);
     }
 
     /**
@@ -67,6 +77,6 @@ public class ServicesUser {
      */
     public Response delete(final String id) {
         HelperUser.setId(id);
-        return strategyManager.getResponse(new UserDelete());
+        return strategyManager.getResponse(delete);
     }
 }

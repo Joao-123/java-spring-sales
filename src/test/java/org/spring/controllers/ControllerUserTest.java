@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
 import org.spring.models.User;
+import org.spring.responses.Response;
+import org.spring.responses.ResponseBody;
+import org.spring.responses.ResponseMessage;
 import org.spring.services.ServicesUser;
-import org.spring.support.MessageManager;
-import org.spring.support.Response;
-import org.spring.support.ResponseBody;
 import org.spring.support.TestSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -43,7 +43,7 @@ public class ControllerUserTest {
     // Mock the service, here we test only the controller.
     // @MockBean is a Spring annotation that depends on mockito framework
     @MockBean
-    private ServicesUser ServicesUserMocked;
+    private ServicesUser servicesUserMocked;
 
     private Response<User> response;
 
@@ -66,7 +66,7 @@ public class ControllerUserTest {
         mockUser.setPassword("pass123");
         mockUser.setName("Isac");
         mockUser.setLastName("Newton");
-        mockUser.setBirthDate("26/06/1996");
+        mockUser.setBirthDate("1996-06-26");
         mockUser.setEmail("Isac.Newton@gmail.com");
         mockUser.setType("admin");
         listUsers.add(mockUser);
@@ -82,20 +82,20 @@ public class ControllerUserTest {
     @Test
     public void test1() throws Exception {
         // Build Response
-        responseBody.setTextMessage(MessageManager.getSuccessfully("Users"));
+        responseBody.setTextMessage(ResponseMessage.getSuccessfully("Users"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        BDDMockito.when(ServicesUserMocked.getAll()).thenReturn(response);
+        BDDMockito.when(servicesUserMocked.getAll()).thenReturn(response);
         // This is the JSON expected.
-        String expectedBody = "{\"data\":[{\"" +
-                "id\":\"5421857\",\"" +
-                "password\":\"pass123\",\"" +
-                "name\":\"Isac\",\"" +
-                "lastName\":\"Newton\",\"" +
-                "birthDate\":\"26/06/1996\",\"" +
-                "email\":\"Isac.Newton@gmail.com\",\"" +
-                "type\":\"admin\"}],\"" +
-                "textMessage\":\"The get Users successfully\"}";
+        String expectedBody = "{\"data\":[{\""
+                + "id\":\"5421857\",\""
+                + "password\":\"pass123\",\""
+                + "name\":\"Isac\",\""
+                + "lastName\":\"Newton\",\""
+                + "birthDate\":\"1996-06-26\",\""
+                + "email\":\"Isac.Newton@gmail.com\",\""
+                + "type\":\"admin\"}],\""
+                + "textMessage\":\"The get Users successfully\"}";
         // Request and Asserts.
         this.mockMvc
                 .perform(MockMvcRequestBuilders.get("/api/v1/users"))
@@ -111,10 +111,10 @@ public class ControllerUserTest {
     @Test
     public void test2() throws Exception {
         // Build Response
-        responseBody.setTextMessage(MessageManager.getSuccessfully("Users"));
+        responseBody.setTextMessage(ResponseMessage.getSuccessfully("Users"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        BDDMockito.when(ServicesUserMocked.getById("5421857")).thenReturn(response);
+        BDDMockito.when(servicesUserMocked.getById("5421857")).thenReturn(response);
         // Request and Asserts.
         this.mockMvc
                 .perform(MockMvcRequestBuilders.get("/api/v1/users/5421857"))
@@ -124,7 +124,7 @@ public class ControllerUserTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Isac"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].lastName").value("Newton"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].birthDate")
-                        .value("26/06/1996"))
+                        .value("1996-06-26"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].email")
                         .value("Isac.Newton@gmail.com"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].type").value("admin"))
@@ -140,10 +140,10 @@ public class ControllerUserTest {
     @Test
     public void test3() throws Exception {
         // Build Response
-        responseBody.setTextMessage(MessageManager.createdSuccessfully("User"));
+        responseBody.setTextMessage(ResponseMessage.createdSuccessfully("User"));
         response.setHttpStatus(HttpStatus.CREATED).setBody(responseBody);
         // Mock Services
-        Mockito.when(ServicesUserMocked.add(Mockito.any(User.class))).thenReturn(response);
+        Mockito.when(servicesUserMocked.add(Mockito.any(User.class))).thenReturn(response);
         String bodyRequest = TestSupport.getInstance().mapToJson(mockUser);
         // Request and Asserts.
         this.mockMvc
@@ -156,7 +156,7 @@ public class ControllerUserTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Isac"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].lastName").value("Newton"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].birthDate")
-                        .value("26/06/1996"))
+                        .value("1996-06-26"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].email")
                         .value("Isac.Newton@gmail.com"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].type").value("admin"))
@@ -172,10 +172,10 @@ public class ControllerUserTest {
     @Test
     public void test4() throws Exception {
         // Build Response
-        responseBody.setTextMessage(MessageManager.updatedSuccessfully("User"));
+        responseBody.setTextMessage(ResponseMessage.updatedSuccessfully("User"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        Mockito.when(ServicesUserMocked.update(Mockito.any(User.class),
+        Mockito.when(servicesUserMocked.update(Mockito.any(User.class),
                 Mockito.any(String.class))).thenReturn(response);
         String bodyRequest = TestSupport.getInstance().mapToJson(mockUser);
         // Request and Asserts.
@@ -189,7 +189,7 @@ public class ControllerUserTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Isac"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].lastName").value("Newton"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].birthDate")
-                        .value("26/06/1996"))
+                        .value("1996-06-26"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].email")
                         .value("Isac.Newton@gmail.com"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].type").value("admin"))
@@ -205,10 +205,10 @@ public class ControllerUserTest {
     @Test
     public void test5() throws Exception {
         // Build Response
-        responseBody.setTextMessage(MessageManager.deletedSuccessfully("Users"));
+        responseBody.setTextMessage(ResponseMessage.deletedSuccessfully("Users"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        BDDMockito.when(ServicesUserMocked.delete("5421857")).thenReturn(response);
+        BDDMockito.when(servicesUserMocked.delete("5421857")).thenReturn(response);
         // Request and Asserts.
         this.mockMvc
                 .perform(MockMvcRequestBuilders.delete("/api/v1/users/5421857"))

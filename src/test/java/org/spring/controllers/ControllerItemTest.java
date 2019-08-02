@@ -1,3 +1,4 @@
+
 package org.spring.controllers;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -56,11 +57,15 @@ public class ControllerItemTest {
     public void setUp() {
         response = new Response<>();
         responseBody = new ResponseBody<>();
-        // Build list of items and response body.
+        // Build list of items and responses body.
         mockItem = new Item();
-        mockItem.setId("1001");
+        final Integer id = 1001;
+        mockItem.setId(id);
         mockItem.setName("Coca cola");
-        mockItem.setPrice("10");
+        final Double price = 10.0;
+        mockItem.setPrice(price);
+        final Integer stock = 10;
+        mockItem.setStock(stock);
         List<Item> listItems;
         listItems = new ArrayList<>();
         listItems.add(mockItem);
@@ -80,10 +85,19 @@ public class ControllerItemTest {
         // Mock Services
         Mockito.when(servicesItemMocked.getAll()).thenReturn(response);
         // Request and Asserts.
+        this.mockMvc
+                .perform(MockMvcRequestBuilders.get("/api/v1/items"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10.0"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].stock").value("10"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
+                        .value("The get Items successfully"));
     }
 
     /**
-     * Test1. Get by id.
+     * Test2. Get by id.
      *
      * @throws Exception Exception.
      */
@@ -93,14 +107,15 @@ public class ControllerItemTest {
         responseBody.setTextMessage(ResponseMessage.getSuccessfully("Item"));
         response.setHttpStatus(HttpStatus.OK).setBody(responseBody);
         // Mock Services
-        Mockito.when(servicesItemMocked.getById(Mockito.any(String.class))).thenReturn(response);
+        Mockito.when(servicesItemMocked.getById(Mockito.any(Integer.class))).thenReturn(response);
         // Request and Asserts.
         this.mockMvc
                 .perform(MockMvcRequestBuilders.get("/api/v1/items/1001"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10.0"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].stock").value("10"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
                         .value("The get Item successfully"));
     }
@@ -134,7 +149,7 @@ public class ControllerItemTest {
     }
 
     /**
-     * Test3
+     * Test4 post.
      *
      * @throws Exception Exception.
      */
@@ -154,7 +169,8 @@ public class ControllerItemTest {
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].id").value("1001"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].name").value("Coca cola"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].price").value("10.0"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data[0].stock").value("10"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.textMessage")
                         .value("The Item was created successfully"));
     }

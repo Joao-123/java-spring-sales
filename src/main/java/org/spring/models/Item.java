@@ -1,15 +1,22 @@
 package org.spring.models;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Class.
  */
 public class Item {
 
-    private String id;
+    private Integer id;
 
+    @NotNull
     private String name;
 
-    private String price;
+    @NotNull
+    private Double price;
+
+    @NotNull
+    private Integer stock;
 
     /**
      * Constructor.
@@ -20,14 +27,14 @@ public class Item {
     /**
      * @return id.
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id id.
      */
-    public void setId(final String id) {
+    public void setId(final Integer id) {
         this.id = id;
     }
 
@@ -48,14 +55,28 @@ public class Item {
     /**
      * @return price.
      */
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
     /**
      * @param price price.
      */
-    public void setPrice(final String price) {
+    public void setPrice(final Double price) {
         this.price = price;
+    }
+
+    /**
+     * @return stock.
+     */
+    public Integer getStock() {
+        return stock;
+    }
+
+    /**
+     * @param stock stock.
+     */
+    public void setStock(final Integer stock) {
+        this.stock = stock;
     }
 }
