@@ -1,4 +1,4 @@
-package org.spring.services.sales;
+package org.spring.helpers;
 
 import org.spring.models.Sale;
 

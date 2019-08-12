@@ -1,7 +1,7 @@
 package org.spring.responses;
 
 import org.spring.models.User;
-import org.spring.services.users.HelperUser;
+import org.spring.helpers.HelperUser;
 import org.springframework.http.HttpStatus;
 
 /**

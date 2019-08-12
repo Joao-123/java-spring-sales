@@ -2,7 +2,7 @@ package org.spring.services;
 
 import org.spring.models.User;
 import org.spring.responses.Response;
-import org.spring.services.users.HelperUser;
+import org.spring.helpers.HelperUser;
 import org.spring.services.users.StrategyServiceUserDelete;
 import org.spring.services.users.StrategyServiceUserGet;
 import org.spring.services.users.StrategyServiceUserGetById;

@@ -4,7 +4,7 @@ import org.spring.repository.RepositorySaleItem;
 import org.spring.responses.Response;
 import org.spring.responses.ResponseBuilderSaleItem;
 import org.spring.services.StrategyService;
-import org.spring.services.sales.HelperSale;
+import org.spring.helpers.HelperSale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

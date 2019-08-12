@@ -2,7 +2,7 @@ package org.spring.services;
 
 import org.spring.models.SaleItem;
 import org.spring.responses.Response;
-import org.spring.services.salesitems.HelperSaleItem;
+import org.spring.helpers.HelperSaleItem;
 import org.spring.services.salesitems.StrategyServiceSaleItemDelete;
 import org.spring.services.salesitems.StrategyServiceSaleItemGet;
 import org.spring.services.salesitems.StrategyServiceSaleItemGetById;

@@ -1,4 +1,4 @@
-package org.spring.services.users;
+package org.spring.helpers;
 
 import org.spring.models.User;
 

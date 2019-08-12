@@ -1,5 +1,6 @@
 package org.spring.services.users;
 
+import org.spring.helpers.HelperUser;
 import org.spring.models.User;
 import org.spring.repository.RepositoryUser;
 import org.spring.responses.ResponseBuilderUser;

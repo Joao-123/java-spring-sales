@@ -1,7 +1,7 @@
 package org.spring.responses;
 
 import org.spring.models.SaleItem;
-import org.spring.services.salesitems.HelperSaleItem;
+import org.spring.helpers.HelperSaleItem;
 import org.springframework.http.HttpStatus;
 
 /**

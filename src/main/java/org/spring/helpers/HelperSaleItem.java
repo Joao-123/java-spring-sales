@@ -1,4 +1,4 @@
-package org.spring.services.salesitems;
+package org.spring.helpers;
 
 import org.spring.models.SaleItem;
 

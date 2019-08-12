@@ -1,4 +1,4 @@
-package org.spring.services.items;
+package org.spring.helpers;
 
 import org.spring.models.Item;
 

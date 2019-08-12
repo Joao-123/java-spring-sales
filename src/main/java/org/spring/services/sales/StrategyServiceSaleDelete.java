@@ -1,5 +1,6 @@
 package org.spring.services.sales;
 
+import org.spring.helpers.HelperSale;
 import org.spring.models.SaleItem;
 import org.spring.repository.RepositorySale;
 import org.spring.repository.RepositorySaleItem;

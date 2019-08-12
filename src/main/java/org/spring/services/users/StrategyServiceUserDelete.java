@@ -1,5 +1,6 @@
 package org.spring.services.users;
 
+import org.spring.helpers.HelperUser;
 import org.spring.models.Sale;
 import org.spring.repository.RepositorySale;
 import org.spring.repository.RepositoryUser;

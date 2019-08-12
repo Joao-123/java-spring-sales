@@ -3,7 +3,7 @@ package org.spring.services;
 
 import org.spring.models.Item;
 import org.spring.responses.Response;
-import org.spring.services.items.HelperItem;
+import org.spring.helpers.HelperItem;
 import org.spring.services.items.StrategyServiceItemDelete;
 import org.spring.services.items.StrategyServiceItemGet;
 import org.spring.services.items.StrategyServiceItemGetById;
