@@ -34,7 +34,7 @@ BODY:
     "lastName": "Cooper",
     "birthDate": "1994-05-26",
     "email": "Sheldon_Cooper@gmail.com",
-    "type": "student"
+    "type": "seller"
 }
 
 DELETE USERS
