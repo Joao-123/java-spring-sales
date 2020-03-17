@@ -2,7 +2,7 @@
 
 This projet is using spring framework.
 
-## Prerequisites  ðŸš€
+## Prerequisites  🚀
 1. Install Windows 10 or Linux
 2. Install Java 8.(1.8.0_201)
 3. Install mysql:5.
@@ -34,7 +34,7 @@ root, secret123
 
 ```
 
-## Installation ðŸ”§
+## Installation 🔧
 1. execute all sql from: sql/folder.
 2. Configure with data bases credentials --- java-spring-sales/jar/version-001/application.properties
 3. Windows - Start app with:  java-spring-sales/jar/version-001/start.bat
@@ -186,7 +186,7 @@ DELETE SALES_ITEMS
 localhost:8080/api/v1/sales/items/1001
 ```
 
-## Contributing ðŸ–‡ï¸
+## Contributing 🖇️
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b issue/1001`
@@ -194,7 +194,7 @@ localhost:8080/api/v1/sales/items/1001
 4. Push to the branch: `git push origin issue/1001`
 5. Submit a pull request.
 
-## License ðŸ“„
+## License 📄
 * Copyright (c) 2019 by Richard Severich, Inc.  All Rights Reserved.
 * This software is the confidential and proprietary information of
 * Richard Severich, Inc. ("Confidential Information").
