@@ -1,5 +1,47 @@
 # java-spring-sales
 
+This projet is using spring framework.
+
+## Prerequisites  ðŸš€
+1. Install Windows 10 or Linux
+2. Install Java 8.(1.8.0_201)
+3. Install mysql:5.
+4. Optional docker.
+
+### Optional Deploy mysql db in docker
+
+1. download docker mysql image: 
+```
+docker pull mysql:5
+```
+
+2. start container: 
+```
+docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=secret123 -p 3306:3306 mysql:5
+```
+
+3. download docker phpmyadmin image:
+```
+docker pull phpmyadmin/phpmyadmin:4.8
+```
+
+4. start container: 
+```
+docker run -d --name myadmin --link mysql:db -p 8080:80 phpmyadmin/phpmyadmin:4.8
+container will start in:
+http://10.31.35.100:8080/
+root, secret123
+
+```
+
+## Installation ðŸ”§
+1. execute all sql from: sql/folder.
+2. Configure with data bases credentials --- java-spring-sales/jar/version-001/application.properties
+3. Windows - Start app with:  java-spring-sales/jar/version-001/start.bat
+4. Linux - Start app with:  java-spring-sales/jar/version-001/start.sh
+
+## USE
+
 ### USERS
 
 ```
@@ -143,3 +185,19 @@ DELETE SALES_ITEMS
 {Host}:{Port}/api/v1/sales/items/{sale_item_id}
 localhost:8080/api/v1/sales/items/1001
 ```
+
+## Contributing ðŸ–‡ï¸
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b issue/1001`
+3. Commit your changes: `git commit -m 'issue/1001: Add some feature'`
+4. Push to the branch: `git push origin issue/1001`
+5. Submit a pull request.
+
+## License ðŸ“„
+* Copyright (c) 2019 by Richard Severich, Inc.  All Rights Reserved.
+* This software is the confidential and proprietary information of
+* Richard Severich, Inc. ("Confidential Information").
+* You may not disclose such Confidential Information, and may only
+* use such Confidential Information in accordance with the terms of
+* the license agreement you entered into with Richard Severich.
