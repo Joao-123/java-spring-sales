@@ -54,11 +54,11 @@ root, secret123
 
 ![Screenshot](documentation/java-spring-sales-diagram-architecture-02.png)
 
-![Screenshot](documentation/java-spring-sales-diagram-architecture-03.png)
+![Screenshot](documentation/java-spring-sales-diagram-architecture-03.jpg)
 
 ### Diagram-entity-relationship
 
-![Screenshot](documentation/java-spring-sales-diagram-entity-relationship)
+![Screenshot](documentation/java-spring-sales-diagram-entity-relationship.jpg)
 
 ## USE
 
