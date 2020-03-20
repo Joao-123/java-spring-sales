@@ -54,7 +54,9 @@ root, secret123
 
 ![Screenshot](documentation/java-spring-sales-diagram-architecture-02.png)
 
-![Screenshot](documentation/java-spring-sales-diagram-architecture-03.jpg)
+### Diagram-class
+
+![Screenshot](documentation/java-spring-sales-diagram-class.jpg)
 
 ### Diagram-entity-relationship
 
