@@ -48,7 +48,17 @@ root, secret123
 
 ## Diagrams
 
+### Diagram-architecture
+
 ![Screenshot](documentation/java-spring-sales-diagram-architecture-01.png)
+
+![Screenshot](documentation/java-spring-sales-diagram-architecture-02.png)
+
+![Screenshot](documentation/java-spring-sales-diagram-architecture-03.png)
+
+### Diagram-entity-relationship
+
+![Screenshot](documentation/java-spring-sales-diagram-entity-relationship)
 
 ## USE
 
