@@ -50,17 +50,25 @@ root, secret123
 
 ### Diagram-architecture
 
-![Screenshot](documentation/java-spring-sales-diagram-architecture-01.png)
+<p align="center">
+  <img src="documentation/java-spring-sales-diagram-architecture-01.png">
+</p>
 
-![Screenshot](documentation/java-spring-sales-diagram-architecture-02.png)
+<p align="center">
+  <img src="documentation/java-spring-sales-diagram-architecture-02.png">
+</p>
 
 ### Diagram-class
 
-![Screenshot](documentation/java-spring-sales-diagram-class.jpg)
+<p align="center">
+  <img src="documentation/java-spring-sales-diagram-class.jpg">
+</p>
 
 ### Diagram-entity-relationship
 
-![Screenshot](documentation/java-spring-sales-diagram-entity-relationship.jpg)
+<p align="center">
+  <img src="documentation/java-spring-sales-diagram-entity-relationship.jpg">
+</p>
 
 ## USE
 
