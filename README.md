@@ -2,6 +2,8 @@
 
 This projet is using spring framework.
 
+This project was performed using Java Spring framework with MySQL data bases, also this project is using Gradle for configurate dependencies, jacoco code coverage, check style, find bugs, Dependency injection, Strategy Design pattern and generics.
+
 ## Prerequisites 🚀
 
 1. Install Windows 10 or Linux
