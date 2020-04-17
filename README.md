@@ -260,7 +260,7 @@ gradle findbugsTest
   <img src="documentation/gradle-test-findbugs-report.jpg">
 </p>
 
-### pmd Report
+### PMD Report
 
 The PMD plugin performs quality checks on your project’s Java source files using PMD and generates reports from these checks.
 
@@ -278,13 +278,23 @@ gradle check
 gradle clean check
 ```
 
+
+Build Folder: in order to see all reports we should enter to reports folder 
+
+(This folders are created automatically when we run the gradle clean task.)
+
 <p align="center">
   <img src="documentation/gradle-folder-01.jpg">
 </p>
 
+Here we have a folder for each tasks(Checktyle, findbungs, jacoco, pmd, tests)
+
 <p align="center">
   <img src="documentation/gradle-folder-02.jpg">
 </p>
+
+
+### Check style report
 
 <p align="center">
   <img src="documentation/gradle-checkstyle-report.jpg">
