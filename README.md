@@ -48,7 +48,7 @@ root, secret123
 3. Windows - Start app with: java-spring-sales/jar/version-001/start.bat
 4. Linux - Start app with: java-spring-sales/jar/version-001/start.sh
 
-## Diagrams
+## Diagrams ⚡️
 
 ### Diagram-architecture
 
@@ -72,7 +72,7 @@ root, secret123
   <img src="documentation/java-spring-sales-diagram-entity-relationship.jpg">
 </p>
 
-## USE
+## USE 🎮
 
 ### USERS
 
@@ -217,6 +217,79 @@ DELETE SALES_ITEMS
 {Host}:{Port}/api/v1/sales/items/{sale_item_id}
 localhost:8080/api/v1/sales/items/1001
 ```
+
+## DEVELOPERS - REPORTS 📈
+
+### Unit Test Report
+
+This report was implemented with gradle.
+
+```
+gradle test
+```
+
+ <p align="center">
+  <img src="documentation/gradle-test-report.jpg">
+</p>
+
+### Test Coverage Report
+
+This report was implemented with gradle.
+
+```
+gradle test jacocoTestReport
+```
+
+ <p align="center">
+  <img src="documentation/gradle-test-coverage-report.jpg">
+</p>
+
+
+### findbugs Report
+
+This report was implemented with gradle. 
+
+FindBugs is a program which uses static analysis to look for bugs in Java code.
+
+```
+gradle findbugsMain
+gradle findbugsTest
+```
+
+ <p align="center">
+  <img src="documentation/gradle-test-findbugs-report.jpg">
+</p>
+
+### pmd Report
+
+The PMD plugin performs quality checks on your project’s Java source files using PMD and generates reports from these checks.
+
+```
+gradle pmdMain
+gradle pmdTest
+```
+
+### Run all tasks
+
+All tasks dependens of check tasks.
+
+```
+gradle check
+gradle clean check
+```
+
+<p align="center">
+  <img src="documentation/gradle-folder-01.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/gradle-folder-02.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/gradle-checkstyle-report.jpg">
+</p>
+
 
 ## Contributing 🖇️
 
